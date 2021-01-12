@@ -1,0 +1,34 @@
+name: deploy-book
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  deploy-book:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        environment-file: environment.yml
+        activate-environment: level-up-your-python
+
+    - name: Install the kernel
+      run: |
+        python -m ipykernel install --user --name conda-env-level-up-your-python-py
+
+    - name: Build the book
+      run: |
+        jupyter-book build .
+
+    - uses: peaceiris/actions-gh-pages@v3.7.3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_build/html
+        force_orphan: true

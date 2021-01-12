@@ -1,3 +1,5 @@
 .ipynb_checkpoints/
 
-tmp_mypy1.py
+*tmp*.py
+
+_build/
