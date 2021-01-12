@@ -1,0 +1,16 @@
+# Book settings
+title: Level Up Your Python
+author: Henry Schreiner
+
+repository:
+  url: https://github.com/henryiii/level-up-your-python
+
+execute:
+  allow_errors: false
+
+html:
+  use_repository_button: true
+  
+launch_buttons:
+  notebook_interface: jupyterlab
+  

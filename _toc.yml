@@ -1,0 +1,22 @@
+# Table of contents for book
+
+- file: 0 Intro
+  numbered: true
+  
+- part: Object Model
+  chapters:
+  - file: 1.1 Memory Model
+  - file: 1.2 Classes
+  
+- part: Syntax
+  chapters:
+  - file: 2.1 Errors
+  - file: 2.2 Generators
+  - file: 2.3 Decorators
+  - file: 2.4 Context Managers
+  - file: 2.5 Static Typing
+  - file: 2.6 Syntax
+  
+- part: Libraries
+  chapters:
+  - file: 3 Libraries
