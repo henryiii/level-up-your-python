@@ -4,13 +4,15 @@ channels:
 dependencies:
   - python =3.8
   - pip
-  - rich >=9.7
+  - rich >=9.8
   - pandas >=1.1
   - matplotlib >=3
   - jupyterlab >= 3.0
   - numba >=0.50.0
   - nb_conda_kernels
-  - numpy
+  - numpy >=1.19
   - jedi <0.18
+  - xeus-python
+  - ipywidgets
   - pip:
     - jupyter-book>=0.9.1
