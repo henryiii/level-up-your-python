@@ -19,4 +19,9 @@
   
 - part: Libraries
   chapters:
-  - file: 3 Libraries
+  - file: 3.1 PyTest
+  - file: 3.2 NumPy
+  - file: 3.3 Pandas
+  - file: 3.4 Numba
+  - file: 3.5 Pybind11
+  - file: 3.6 Code Quality and CI
