@@ -1,5 +1,6 @@
 .ipynb_checkpoints/
 
 *tmp*.py
+*tmp*.csv
 
 _build/

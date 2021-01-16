@@ -1,0 +1,9 @@
+name: jupyterlab
+channels:
+  - conda-forge
+dependencies:
+  - python =3.8
+  - pip
+  - jupyterlab < 3.0
+  - jedi <0.18
+  - ipywidgets
