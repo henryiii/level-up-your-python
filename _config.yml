@@ -1,6 +1,7 @@
 # Book settings
 title: Level Up Your Python
 author: Henry Schreiner
+logo: images/LevelUpYourPython.png
 
 repository:
   url: https://github.com/henryiii/level-up-your-python
