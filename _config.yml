@@ -4,6 +4,7 @@ author: Henry Schreiner
 
 repository:
   url: https://github.com/henryiii/level-up-your-python
+  branch: main
 
 execute:
   allow_errors: true
