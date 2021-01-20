@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+
+# Avoid having a no kernel popup
+python3 -m ipykernel install --user --name conda-env-level-up-your-python-py
