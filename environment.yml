@@ -14,5 +14,7 @@ dependencies:
   - jedi <0.18
   - xeus-python
   - ipywidgets
+  - black
+  - mypy
   - pip:
     - jupyter-book>=0.9.1
