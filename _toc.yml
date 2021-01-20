@@ -1,30 +1,30 @@
 # Table of contents for book
 
-- file: 0 Intro
+- file: notebooks/0 Intro
   numbered: true
   
 - part: Object Model
   chapters:
-  - file: 1.1 Memory Model
-  - file: 1.2 Classes
-  - file: 1.3 Logging
-  - file: 1.4 Debugging
-  - file: 1.5 Bonus
+  - file: notebooks/1.1 Memory Model
+  - file: notebooks/1.2 Classes
+  - file: notebooks/1.3 Logging
+  - file: notebooks/1.4 Debugging
+  - file: notebooks/1.5 Bonus
   
 - part: Syntax
   chapters:
-  - file: 2.1 Errors
-  - file: 2.2 Generators
-  - file: 2.3 Decorators
-  - file: 2.4 Context Managers
-  - file: 2.5 Static Typing
-  - file: 2.6 Packaging
+  - file: notebooks/2.1 Errors
+  - file: notebooks/2.2 Generators
+  - file: notebooks/2.3 Decorators
+  - file: notebooks/2.4 Context Managers
+  - file: notebooks/2.5 Static Typing
+  - file: notebooks/2.6 Packaging
   
 - part: Libraries
   chapters:
-  - file: 3.1 PyTest
-  - file: 3.2 NumPy
-  - file: 3.3 Pandas
-  - file: 3.4 Numba
-  - file: 3.5 Pybind11
-  - file: 3.6 Code Quality and CI
+  - file: notebooks/3.1 PyTest
+  - file: notebooks/3.2 NumPy
+  - file: notebooks/3.3 Pandas
+  - file: notebooks/3.4 Numba
+  - file: notebooks/3.5 Pybind11
+  - file: notebooks/3.6 Code Quality and CI
