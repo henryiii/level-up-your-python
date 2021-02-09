@@ -19,6 +19,7 @@
   - file: notebooks/2.4 Context Managers
   - file: notebooks/2.5 Static Typing
   - file: notebooks/2.6 Packaging
+  - file: notebooks/2.7 Dos and Donts
   
 - part: Libraries
   chapters:
