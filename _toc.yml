@@ -1,9 +1,8 @@
-# Table of contents for book
-
-- file: notebooks/0 Intro
+format: jb-book
+root: notebooks/0 Intro
+parts:
+- caption: Object Model
   numbered: true
-  
-- part: Object Model
   chapters:
   - file: notebooks/1.1 Memory Model
   - file: notebooks/1.1b Intro to Classes
@@ -12,8 +11,8 @@
   - file: notebooks/1.4 Debugging
   - file: notebooks/1.4b Debugging in Lab
   - file: notebooks/1.5 Profiling
-  
-- part: Syntax
+- caption: Syntax
+  numbered: true
   chapters:
   - file: notebooks/2.1 Errors
   - file: notebooks/2.2 Generators
@@ -22,8 +21,8 @@
   - file: notebooks/2.5 Static Typing
   - file: notebooks/2.6 Using Packages
   - file: notebooks/2.7 Creating Packages
-  
-- part: Libraries
+- caption: Libraries
+  numbered: true
   chapters:
   - file: notebooks/3.1 PyTest
   - file: notebooks/3.2 NumPy
