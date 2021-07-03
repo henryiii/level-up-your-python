@@ -2,7 +2,7 @@ name: level-up-your-python
 channels:
   - conda-forge
 dependencies:
-  - python =3.8
+  - python ==3.9
   - pip
   - rich >=9.8
   - pandas >=1.1
@@ -11,10 +11,11 @@ dependencies:
   - numba >=0.50.0
   - nb_conda_kernels
   - numpy >=1.19
-  - jedi <0.18
   - xeus-python
   - ipywidgets
   - black
-  - mypy >=0.800
-  - pip:
-    - jupyter-book >=0.9.1
+  - mypy >=0.900
+  - line_profiler
+  - jupyter-book
+  - filprofiler
+  - pybind11

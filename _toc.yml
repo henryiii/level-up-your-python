@@ -6,10 +6,12 @@
 - part: Object Model
   chapters:
   - file: notebooks/1.1 Memory Model
+  - file: notebooks/1.1b Intro to Classes
   - file: notebooks/1.2 Classes
   - file: notebooks/1.3 Logging
   - file: notebooks/1.4 Debugging
-  - file: notebooks/1.5 Bonus
+  - file: notebooks/1.4b Debugging in Lab
+  - file: notebooks/1.5 Profiling
   
 - part: Syntax
   chapters:
@@ -18,7 +20,8 @@
   - file: notebooks/2.3 Decorators
   - file: notebooks/2.4 Context Managers
   - file: notebooks/2.5 Static Typing
-  - file: notebooks/2.6 Packaging
+  - file: notebooks/2.6 Using Packages
+  - file: notebooks/2.7 Creating Packages
   
 - part: Libraries
   chapters:
