@@ -9,7 +9,6 @@ parts:
   - file: notebooks/1.2 Classes
   - file: notebooks/1.3 Logging
   - file: notebooks/1.4 Debugging
-  - file: notebooks/1.4b Debugging in Lab
   - file: notebooks/1.5 Profiling
 - caption: Syntax
   numbered: true
