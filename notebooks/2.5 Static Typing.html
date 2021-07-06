@@ -1,0 +1,696 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. Static Type Hinting &#8212; Level Up Your Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Using packages" href="2.6%20Using%20Packages.html" />
+    <link rel="prev" title="4. Context Managers" href="2.4%20Context%20Managers.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/LevelUpYourPython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Level Up Your Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0%20Intro.html">
+   Level Up Your Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Object Model
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.1%20Memory%20Model.html">
+   1. Python Object Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.1b%20Intro%20to%20Classes.html">
+   2. Intro to classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.2%20Classes.html">
+   3. Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.3%20Logging.html">
+   4. Logging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.4%20Debugging.html">
+   5. Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.5%20Profiling.html">
+   6. Profiling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Syntax
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.1%20Errors.html">
+   1. Errors and catching them
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.2%20Generators.html">
+   2. Generators (Iterators)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.3%20Decorators.html">
+   3. Decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.4%20Context%20Managers.html">
+   4. Context Managers
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Static Type Hinting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.6%20Using%20Packages.html">
+   6. Using packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.7%20Creating%20Packages.html">
+   7. Creating packages
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Libraries
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.1%20PyTest.html">
+   1. PyTest: Unit Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.2%20NumPy.html">
+   2. NumPy: Numeric computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.3%20Pandas.html">
+   3. Pandas: DataFrames for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.4%20Numba.html">
+   4. Numba: JIT for Speed!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.5%20Pybind11.html">
+   5. Pybind11: Use C++ libraries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.6%20Code%20Quality%20and%20CI.html">
+   6. Code Quality and CI
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/2.5 Static Typing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/henryiii/level-up-your-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/henryiii/level-up-your-python/main?urlpath=lab/tree/notebooks/2.5 Static Typing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basics">
+   5.1. Basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-sys-executable-here">
+     5.1.1. Why sys.executable here?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#catching-an-error">
+     5.1.2. Catching an error
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-types">
+     5.1.3. Adding types
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuration">
+     5.1.4. Configuration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-features">
+     5.1.5. Other features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extended-example">
+   5.2. Extended example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#protocols">
+   5.3. Protocols
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="static-type-hinting">
+<h1><span class="section-number">5. </span>Static Type Hinting<a class="headerlink" href="#static-type-hinting" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="basics">
+<h2><span class="section-number">5.1. </span>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<p>The most exciting thing happening right now in Python development is static typing. Since Python 3.0, we’ve had function annotations, and since 3.6, variable annotations. In 3.5, we got a “typing” library, which provides tools to describe types. You’ve already seen me using type hints:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You might have been asking yourself, what does that do? Does it limit what I can use here?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">([</span><span class="s2">&quot;hi&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hi&#39;, &#39;hi&#39;, &#39;hi&#39;, &#39;hi&#39;, &#39;hi&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>No. It does <em>nothing</em> at runtime, except store the object. And in the upcoming Python 3.11 (or 3.7+ with <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code>), it doesn’t even store the actual object, just the string you type here, so then anything that can pass the Python parser is allowed here.</p>
+<p>It is not useless though! For one, it helps the reader. Knowing the types expected really gives you a much better idea of what is going on and what you can do and can’t do.</p>
+<p>But the key goal is: static type checking! There are a collection of static type checkers, the most “official” and famous of which is MyPy. You can think of this as the “compiler” for compiled languages like C++; it checks to make sure you are not lying about the types. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> tmp_mypy1.py
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">5</span>
+
+<span class="n">f</span><span class="p">([</span><span class="s2">&quot;hi&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing tmp_mypy1.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!{</span>sys.executable<span class="o">}</span> -m mypy tmp_mypy1.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tmp_mypy1.py:4: <span class=" -Color -Color-Bold -Color-Bold-Red">error:</span> Argument 1 to <span class=" -Color -Color-Bold">&quot;f&quot;</span> has incompatible type <span class=" -Color -Color-Bold">&quot;List[str]&quot;</span>; expected <span class=" -Color -Color-Bold">&quot;int&quot;</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">Found 1 error in 1 file (checked 1 source file)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div></div></blockquote>
+<div class="section" id="why-sys-executable-here">
+<h3><span class="section-number">5.1.1. </span>Why sys.executable here?<a class="headerlink" href="#why-sys-executable-here" title="Permalink to this headline">¶</a></h3>
+<p>We are running inside a virtual environment, which also has mypy installed. However, this is a shell command (the starting <code class="docutils literal notranslate"><span class="pre">!</span></code>), so it will not necessarily run in the same environment. So we’ll use the current python interpreter <code class="docutils literal notranslate"><span class="pre">sys.executable</span></code> and use the <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">mypy</span></code> expression instead of plain <code class="docutils literal notranslate"><span class="pre">mypy</span></code> to make sure we get our installed MyPy. You don’t usually run mypy from a notebook.</p>
+</div>
+<p>There we go! And, most importantly, <em>we didn’t have to run any code to see this error</em>! Your tests cannot test every possible branch, every line of code. MyPy can (though it doesn’t by default, due to gradual typing). You may have code that runs rarely, that requires remote resources, that is slow, etc. All those can be checked by MyPy. It also keeps you (too?) truthful in your types.</p>
+<div class="section" id="catching-an-error">
+<h3><span class="section-number">5.1.2. </span>Catching an error<a class="headerlink" href="#catching-an-error" title="Permalink to this headline">¶</a></h3>
+<p>Let’s see an example of an error that MyPy can catch:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> tmp_mypy1.py
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">5</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting tmp_mypy1.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!{</span>sys.executable<span class="o">}</span> -m mypy tmp_mypy1.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tmp_mypy1.py:4: <span class=" -Color -Color-Bold -Color-Bold-Red">error:</span> Unsupported operand types for * (<span class=" -Color -Color-Bold">&quot;None&quot;</span> and <span class=" -Color -Color-Bold">&quot;int&quot;</span>)
+tmp_mypy1.py:4: <span class=" -Color -Color-Blue">note:</span> Left operand is of type <span class=" -Color -Color-Bold">&quot;Optional[int]&quot;</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">Found 1 error in 1 file (checked 1 source file)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Your test suite may have forgotten to run with a <code class="docutils literal notranslate"><span class="pre">None</span></code> input. You may not run into <code class="docutils literal notranslate"><span class="pre">None</span></code> often, until you are in a critical situation. But MyPy can find it and tell you there’s a logic issue, your function cannot take <code class="docutils literal notranslate"><span class="pre">None</span></code> like it claims it can.</p>
+</div>
+<div class="section" id="adding-types">
+<h3><span class="section-number">5.1.3. </span>Adding types<a class="headerlink" href="#adding-types" title="Permalink to this headline">¶</a></h3>
+<p>There are three ways to add types.</p>
+<ol class="simple">
+<li><p>They can be inline as annotations. Best for Python 3 code, usually.</p></li>
+<li><p>They can be in special “type comments”. Required mostly for Python 2 code, and still requires the proper imports (one reason why the packaging section is so important, depending on libraries like backports is important).</p></li>
+<li><p>They can be in a separate file with the same name but with a <code class="docutils literal notranslate"><span class="pre">.pyi</span></code> extension. This is important for type stubs or for cases where you don’t want to add imports or touch the original code. You can annotate compiled files or libraries you don’t control this way.</p></li>
+</ol>
+<p>If you have a library you don’t control, you can add “type stubs” for it, then give MyPy your stubs directory. MyPy will pull the types from your stubs. If you are writing code for a Raspberry Pi, for example, you could add the stubs for the Pi libraries, and then validate your code, without ever even installing the Pi-only libraries!</p>
+</div>
+<div class="section" id="configuration">
+<h3><span class="section-number">5.1.4. </span>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>By default, MyPy does as little as possible, so that you can add it iteratively to a code base. By default:</p>
+<ul class="simple">
+<li><p>All untyped variables and return values will be Any</p></li>
+<li><p>Code inside untyped functions is not checked <em>at all</em></p></li>
+</ul>
+<p>You can add configuration to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> (and a little bit to the files themselves), or you can go all the way and pass <code class="docutils literal notranslate"><span class="pre">--strict</span></code>, which will turn on everything.</p>
+<p>For a library to support typing, it has to a) add types using any of the three methods, and b) add a <code class="docutils literal notranslate"><span class="pre">py.typed</span></code> empty file to indicate that it’s okay to look for types inside it. MyPy also looks in <code class="docutils literal notranslate"><span class="pre">typeshed</span></code>, which is a library full of type hints for (mostly) the standard library.</p>
+<p>Third party libraries that are typed sometimes forget this last step, by the way!</p>
+<p>Personally, I recommend using pre-commit to run all your checks except PyTest (and that only because it’s likely slow), and including MyPy in your pre-commit testing. Try to turn on as much as possible, and increase it until you can run with full <code class="docutils literal notranslate"><span class="pre">strict</span></code> checking.</p>
+</div>
+<div class="section" id="other-features">
+<h3><span class="section-number">5.1.5. </span>Other features<a class="headerlink" href="#other-features" title="Permalink to this headline">¶</a></h3>
+<p>Static typing has some great features worth checking out:</p>
+<ul class="simple">
+<li><p>Unions (New syntax coming in Python 3.10)</p></li>
+<li><p>Generic Types (New syntax in Python 3.9)</p></li>
+<li><p>Protocols</p></li>
+<li><p>Literals</p></li>
+<li><p>TypedDict</p></li>
+<li><p>Nicer NamedTuple definition (very popular in Python 3 code)</p></li>
+<li><p>MyPy validates the Python version you ask for</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="extended-example">
+<h2><span class="section-number">5.2. </span>Extended example<a class="headerlink" href="#extended-example" title="Permalink to this headline">¶</a></h2>
+<p>Here’s the classic syntax, which you need to use if support 3.6+.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> tmp_mypy1.py
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="c1"># Generic types take bracket arguments</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># Unions are a list of types that all could be allowed</span>
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Type narrowing - Unions get narrowed</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    
+    <span class="c1"># Calling x.lower() is invalid here!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting tmp_mypy1.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!{</span>sys.executable<span class="o">}</span> -m mypy tmp_mypy1.py --strict
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">Success: no issues found in 1 source file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code> in Python 3.7, annotations no longer get evaluated at runtime (the default in 3.10+), and so this is valid on Python 3.7 and MyPy!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> tmp_mypy2.py
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing tmp_mypy2.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!{</span>sys.executable<span class="o">}</span> -m mypy tmp_mypy2.py --strict
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">Success: no issues found in 1 source file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that I didn’t even have to import anything from typing! Note that you cannot use the “new” syntax in non annotation locations (like unions in <code class="docutils literal notranslate"><span class="pre">isinstance</span></code>) until Python supports it.</p>
+<p>You can use the above in earlier Python versions if you use strings.</p>
+<p>When run alongside a good linter like flake8, this can catch a huge number of issues before tests or they are discovered in the wild! It also prompts <em>better design</em>, because you are thinking about how types work and interact. It’s also more readable, since if I give you code like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="n">timestamp</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>You don’t know “what” timestamp is. Is it an int? A float? An object? With types, you’ll know what I was intending to give you. You can use type aliases to really give expressive names here!</p>
+</div>
+<div class="section" id="protocols">
+<h2><span class="section-number">5.3. </span>Protocols<a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h2>
+<p>One of the best features of MyPy is support for structural subtyping via Protocols - formalized duck-typing, basically. This allows <em>cross library interoperability</em>, unlike traditional inheritance. Here’s how it works:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Protocol</span>  <span class="c1"># or typing_extensions for &lt; 3.8</span>
+
+
+<span class="k">class</span> <span class="nc">Duck</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">quack</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now any object that can “quack” (and return a string) is a Duck. We can even add <code class="docutils literal notranslate"><span class="pre">&#64;runtime_checkable</span></code> which will allow us to check this (minus the types) at runtime in <code class="docutils literal notranslate"><span class="pre">isinstance</span></code>. So now we can design code like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pester_duck</span><span class="p">(</span><span class="n">a_duck</span><span class="p">:</span> <span class="n">Duck</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a_duck</span><span class="o">.</span><span class="n">quack</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a_duck</span><span class="o">.</span><span class="n">quack</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And the type checker will ensure we only write code valid on all “Duck”s. And, we can write a duck implementation and test it like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyDuck</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">quack</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;quack&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This will pass a check for being a Duck, for example something like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">typing</span>
+
+<span class="k">if</span> <span class="n">typing</span><span class="o">.</span><span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="n">_</span><span class="p">:</span> <span class="n">Duck</span> <span class="o">=</span> <span class="n">typing</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">MyDuck</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice the complete lack of dependencies here. We don’t need <code class="docutils literal notranslate"><span class="pre">MyDuck</span></code> to write <code class="docutils literal notranslate"><span class="pre">pester_duck</span></code>, or vice-versa. And, we don’t even need <code class="docutils literal notranslate"><span class="pre">Duck</span></code> to write either one at runtime! The dependence on Duck for <code class="docutils literal notranslate"><span class="pre">pester_duck</span></code> is intirely a type-check-time dependence (unless we want to use a <code class="docutils literal notranslate"><span class="pre">runtime_checkable</span></code> powered <code class="docutils literal notranslate"><span class="pre">isinstance</span></code>).</p>
+<p>There are <em>lots</em> of built-in Protocols, most of which pre-date typing and are avaiable in an Abstract Base Class form. Most of them check for one or more special methods, like Iterable, Iterator, etc.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-level-up-your-python-py",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-level-up-your-python-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="2.4%20Context%20Managers.html" title="previous page"><span class="section-number">4. </span>Context Managers</a>
+    <a class='right-next' id="next-link" href="2.6%20Using%20Packages.html" title="next page"><span class="section-number">6. </span>Using packages</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Henry Schreiner<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

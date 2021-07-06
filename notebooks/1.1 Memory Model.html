@@ -1,0 +1,1037 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Python Object Model &#8212; Level Up Your Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Intro to classes" href="1.1b%20Intro%20to%20Classes.html" />
+    <link rel="prev" title="Level Up Your Python" href="0%20Intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/LevelUpYourPython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Level Up Your Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0%20Intro.html">
+   Level Up Your Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Object Model
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Python Object Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.1b%20Intro%20to%20Classes.html">
+   2. Intro to classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.2%20Classes.html">
+   3. Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.3%20Logging.html">
+   4. Logging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.4%20Debugging.html">
+   5. Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.5%20Profiling.html">
+   6. Profiling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Syntax
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.1%20Errors.html">
+   1. Errors and catching them
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.2%20Generators.html">
+   2. Generators (Iterators)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.3%20Decorators.html">
+   3. Decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.4%20Context%20Managers.html">
+   4. Context Managers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.5%20Static%20Typing.html">
+   5. Static Type Hinting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.6%20Using%20Packages.html">
+   6. Using packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.7%20Creating%20Packages.html">
+   7. Creating packages
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Libraries
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.1%20PyTest.html">
+   1. PyTest: Unit Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.2%20NumPy.html">
+   2. NumPy: Numeric computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.3%20Pandas.html">
+   3. Pandas: DataFrames for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.4%20Numba.html">
+   4. Numba: JIT for Speed!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.5%20Pybind11.html">
+   5. Pybind11: Use C++ libraries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.6%20Code%20Quality%20and%20CI.html">
+   6. Code Quality and CI
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/1.1 Memory Model.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/henryiii/level-up-your-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/henryiii/level-up-your-python/main?urlpath=lab/tree/notebooks/1.1 Memory Model.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#everything-in-python-is-an-object">
+   1.1. Everything in Python is an object!
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspecting">
+   1.2. Inspecting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutability">
+   1.3. Mutability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advanced-aside-why-did-this-work">
+     1.3.1. Advanced aside: Why did this work?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scope">
+   1.4. Scope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#memory-and-the-garbage-collector">
+   1.5. Memory and the Garbage Collector
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing">
+   1.6. Importing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-basics">
+     1.6.1. Importing Basics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#circular-imports">
+     1.6.2. Circular imports
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#where-do-imports-come-from">
+     1.6.3. Where do imports come from?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relative-imports">
+     1.6.4. Relative imports
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="python-object-model">
+<h1><span class="section-number">1. </span>Python Object Model<a class="headerlink" href="#python-object-model" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="everything-in-python-is-an-object">
+<h2><span class="section-number">1.1. </span>Everything in Python is an object!<a class="headerlink" href="#everything-in-python-is-an-object" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Okay, technically a <code class="docutils literal notranslate"><span class="pre">PyObject*</span></code> in CPython - we’ll focus on CPython most of the time today. Most other implementations (especially PyPy) are pretty similar.</p>
+</div></blockquote>
+<p>An object is an “instance” of a “type”, or a “class”, which describes what that sort of object does.</p>
+<blockquote>
+<div><p>Types and basic objects have some optimizations in CPython, for speed and also to keep the language from being infinitely recursive - but they are still PyObject*’s.</p>
+<p>Also, “built-in” classes are a little special.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Even a simple int has methods:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s define a function (I’ll be using proper Python types when simple to add, we will cover typing later):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<p>This definition really is an assignment, a new function is made and assigned to <code class="docutils literal notranslate"><span class="pre">f</span></code>. But, since the assignment is not arbitrary, that is, it clearly has a name, functions remember their name!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;f&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="p">,</span> <span class="n">f</span>
+<span class="c1"># What is the v now? f? How about the name?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remember: everything is an object. <a class="reference external" href="https://www.geeksforgeeks.org/first-class-functions-python/">Functions are “First Class”</a> objects in Python, meaning they behave exactly like any other object. All objects are “First Class”, there are no lesser or “other” type of objects in Python. Functions just happen to be callable. Other objects can be callable, too, depending on their class and the presence of a <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method in it.</p>
+</div>
+<div class="section" id="inspecting">
+<h2><span class="section-number">1.2. </span>Inspecting<a class="headerlink" href="#inspecting" title="Permalink to this headline">¶</a></h2>
+<p>You can inspect objects. There are lots of ways.</p>
+<ul class="simple">
+<li><p>In a Jupyter notebook, use <code class="docutils literal notranslate"><span class="pre">object.&lt;tab&gt;</span></code> to bring up completions, shift tab for help.</p></li>
+<li><p>You can use <code class="docutils literal notranslate"><span class="pre">dir(object)</span></code> to see all attributes (more or less)</p></li>
+<li><p>You can use <code class="docutils literal notranslate"><span class="pre">help(object)</span></code> or <code class="docutils literal notranslate"><span class="pre">object?</span></code> (IPython only) to see help</p></li>
+<li><p>You can <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">inspect</span></code> and use the tools there</p></li>
+<li><p>You can install the rich library and use <code class="docutils literal notranslate"><span class="pre">rich.inspect()</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="s2">&quot;I am a square!&quot;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="n">help</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function f in module __main__:
+
+f(x: float) -&gt; float
+    I am a square!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__annotations__&#39;,
+ &#39;__call__&#39;,
+ &#39;__class__&#39;,
+ &#39;__closure__&#39;,
+ &#39;__code__&#39;,
+ &#39;__defaults__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__get__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__globals__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__kwdefaults__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__name__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__qualname__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getsourcefile</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+<span class="c1"># WARNING! THIS DOES NOT ALWAYS WORK!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3474/788025665.py
+def f(x: float) -&gt; float:
+    &quot;I am a square!&quot;
+    return x ** 2
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>WARNING: You cannot <em>always</em> see the source of a function, so this is a user trick, not one to use in a library!</strong></p>
+<p>Python does a three stage procedure when interpreting. It converts source to bytecode (pyc files), then runs the bytecode in the interpreter. When loading a file that has been run before (or came from a wheel, more on that later), it only loads the bytecode if the source hasn’t changed - the source is not re-parsed. So inspect works by looking up the original file location. <em>But you can delete the original file and run from bytecode only!</em> Don’t do that, but you can. Also, you can run from a zip file, and the original file might not be openable. And, finally, when running live in a REPL, there may not be a source (it works in IPython for us, though).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rich</span>
+
+<span class="n">rich</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">╭─────────────── </span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">function</span><span style="color: #000000; text-decoration-color: #000000"> f at </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0x7fedd0c4b280</span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">&gt;</span><span style="color: #000080; text-decoration-color: #000080"> ───────────────╮</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #00ffff; text-decoration-color: #00ffff; font-style: italic">def </span><span style="color: #800000; text-decoration-color: #800000; font-weight: bold">f</span><span style="font-weight: bold">(</span>x: float<span style="font-weight: bold">)</span> -&gt; float:                                    <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>                                                              <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #008080; text-decoration-color: #008080">I am a square!</span>                                               <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>                                                              <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35</span><span style="font-style: italic"> attribute(s) not shown.</span> Run <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">inspect</span><span style="font-weight: bold">(</span>inspect<span style="font-weight: bold">)</span> for options. <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">╰──────────────────────────────────────────────────────────────╯</span>
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rich</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #000080; text-decoration-color: #000080">╭────── </span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">class</span><span style="color: #000000; text-decoration-color: #000000"> </span><span style="color: #008000; text-decoration-color: #008000">'int'</span><span style="color: #000080; text-decoration-color: #000080; font-weight: bold">&gt;</span><span style="color: #000080; text-decoration-color: #000080"> ───────╮</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">int</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">([</span><span style="color: #008080; text-decoration-color: #008080">x</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">])</span><span style="color: #008080; text-decoration-color: #008080"> -&gt; integer</span>        <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">int</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080">x, </span><span style="color: #808000; text-decoration-color: #808000">base</span><span style="color: #008080; text-decoration-color: #008080">=</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">)</span><span style="color: #008080; text-decoration-color: #008080"> -&gt; integer</span> <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>                            <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #008000; text-decoration-color: #008000">╭────────────────────────╮</span> <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #008000; text-decoration-color: #008000">│</span> <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>                      <span style="color: #008000; text-decoration-color: #008000">│</span> <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #008000; text-decoration-color: #008000">╰────────────────────────╯</span> <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>                            <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span> <span style="color: #808000; text-decoration-color: #808000; font-style: italic">denominator</span> = <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>            <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>        <span style="color: #808000; text-decoration-color: #808000; font-style: italic">imag</span> = <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>            <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>   <span style="color: #808000; text-decoration-color: #808000; font-style: italic">numerator</span> = <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>            <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">│</span>        <span style="color: #808000; text-decoration-color: #808000; font-style: italic">real</span> = <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>            <span style="color: #000080; text-decoration-color: #000080">│</span>
+<span style="color: #000080; text-decoration-color: #000080">╰────────────────────────────╯</span>
+</pre>
+</div></div>
+</div>
+<blockquote>
+<div><p>Try adding different keyword arguments to <code class="docutils literal notranslate"><span class="pre">rich.inspect</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="mutability">
+<h2><span class="section-number">1.3. </span>Mutability<a class="headerlink" href="#mutability" title="Permalink to this headline">¶</a></h2>
+<p>Many built-in objects are immutable, so it can hide the fact that Python does not have the concept of “pass by value”; the labels you see really are all pointing to PyObject*’s that are being managed by Python’s garbage collector.</p>
+<p>If you write <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code>, then x and y refer to the same object. Always. This can’t be overridden. However, it’s hard to see that if you can’t mutate the value, so there’s no “side effect” to this. Side effects only happen for mutable objects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What is {y = }?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>What is {y = }?
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>Add an <code class="docutils literal notranslate"><span class="pre">f</span></code> before the string to see the answer (remove the “=” inside the brakents for Python 3.6 or 3.7).</p>
+</div></blockquote>
+<p>Now, let’s try a mutable object. Lists, sets, and dicts are the most notable mutable objects in <code class="docutils literal notranslate"><span class="pre">builtins</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What is {y = }?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>What is {y = }?
+</pre></div>
+</div>
+</div>
+</div>
+<p>Why?</p>
+<p>The problem was that when the object was immutable, the inplace operator <code class="docutils literal notranslate"><span class="pre">+=</span></code> actually behaved like <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code>, which is a new object. When it was a mutable object (a list), then it was able to change it in-place.</p>
+<div class="section" id="advanced-aside-why-did-this-work">
+<h3><span class="section-number">1.3.1. </span>Advanced aside: Why did this work?<a class="headerlink" href="#advanced-aside-why-did-this-work" title="Permalink to this headline">¶</a></h3>
+<p>Quick aside for advanced Pythonistas, this is tricky. <code class="docutils literal notranslate"><span class="pre">x[0]</span></code> returns an int. So why is this any different than before? Let’s explore, using mock:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">MagicMock</span>
+
+<span class="n">ListProxy</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="s2">&quot;ListProxy&quot;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">ListProxy</span><span class="p">()</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">rich</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">mock_calls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">call.__getitem__</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>,
+ <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">call.__getitem__</span><span style="font-weight: bold">()</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">.__iadd__</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>,
+ <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">call.__setitem__</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>, <span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">MagicMock</span><span style="color: #000000; text-decoration-color: #000000"> </span><span style="color: #808000; text-decoration-color: #808000">name</span><span style="color: #000000; text-decoration-color: #000000">=</span><span style="color: #008000; text-decoration-color: #008000">'mock().__getitem__().__iadd__()'</span><span style="color: #000000; text-decoration-color: #000000"> </span>
+<span style="color: #808000; text-decoration-color: #808000">id</span><span style="color: #000000; text-decoration-color: #000000">=</span><span style="color: #008000; text-decoration-color: #008000">'140659383722096'</span><span style="font-weight: bold">&gt;)]</span>
+</pre>
+</div></div>
+</div>
+<p>You can see that this has special support for this syntax, it pulls out the item inside, and sets it, then stores it. There are other special syntax treatments in Python as well, all designed to make the language more friendly and powerful:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="mi">3</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Can we glean anything from the original example, though? Yes, assignment is special. There are only four forms of normal assignment:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>    <span class="c1"># Can&#39;t be overridden</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>  <span class="c1">#  ditto, tuple assignment</span>
+<span class="n">x</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>     <span class="c1"># __setitem__ </span>
+<span class="n">x</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>      <span class="c1"># __setattr__</span>
+</pre></div>
+</div>
+<p>That’s it. These are <em>not</em> valid assignments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>    <span class="c1"># There is no assignment for __call__</span>
+<span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>   <span class="c1"># Arbitrary expressions are not allowed</span>
+<span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="c1"># Can&#39;t be nested</span>
+<span class="c1"># So on.</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>This was limiting, so Python 3.8 added a nestable assignment, <code class="docutils literal notranslate"><span class="pre">:=</span></code> (walrus operator), though it was somewhat controversial. It does not work anywhere that normal <code class="docutils literal notranslate"><span class="pre">=</span></code> works, to avoid confusion.</p>
+</div></blockquote>
+<p>Inplace assignment operators follow the same rules, so they are “special”, and not allowed anywhere.</p>
+</div>
+</div>
+<div class="section" id="scope">
+<h2><span class="section-number">1.4. </span>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
+<p>Python has scope, but not in very many places. Functions and class definitions create scope, and modules have scope. (Generator expressions now have scope too). That’s about it. So you can write this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">if</span></code> had scope, then x would not be accessible outside the if. This is simple and useful, but you have to be careful to stay clean and tidy. For example, if that <code class="docutils literal notranslate"><span class="pre">if</span></code> was <code class="docutils literal notranslate"><span class="pre">False</span></code>, this would suddenly break. It’s valid to use the loop variable after a loop ends, etc. There’s really not much scope at all!</p>
+<p>Because it shows up in so few places, and is so close to automatic, in can bite you once in a while if you don’t keep it in mind:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">f</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+1
+</pre></div>
+</div>
+</div>
+</div>
+<p>But we will try an assignment:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">f</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+1
+</pre></div>
+</div>
+</div>
+</div>
+<p>So x in the function is not the same x out of the function now! (Try printing before assigning to it, or try changing it inplace. Even better, what happens if it is mutable?)</p>
+<p>If you want a rule to put in your pocket:</p>
+<ul class="simple">
+<li><p>Accessing a variable uses the first variable it finds going up in scope</p></li>
+<li><p>Setting a variable always uses the local scope</p></li>
+</ul>
+<p>If this is really what you want, you can use <code class="docutils literal notranslate"><span class="pre">nonlocal</span></code> to access a variable one-scope-up but not global, or <code class="docutils literal notranslate"><span class="pre">global</span></code> to declare a variable with global scope.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">global</span> <span class="n">x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">f</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Need a practical rule?</p>
+<p><strong>Always pass variables out explicitly, be cautious with using anything not clearly global in a function.</strong></p>
+<p>This means you should never see <code class="docutils literal notranslate"><span class="pre">global</span></code>, as it’s only needed for setting variables. Global read-only variables (the only safe kind) are sometimes ALL_CAPS. (Hint: for typed code, you can add <code class="docutils literal notranslate"><span class="pre">Final</span></code>).</p>
+</div>
+<div class="section" id="memory-and-the-garbage-collector">
+<h2><span class="section-number">1.5. </span>Memory and the Garbage Collector<a class="headerlink" href="#memory-and-the-garbage-collector" title="Permalink to this headline">¶</a></h2>
+<p>Python is a garbage collected language. All Python objects have a refcount, which tells the garbage collector how many “labels” or how many ways you can access that object. When you can’t get to the object anymore, the garbage collector <em>has the right to</em> remove the object. It <em>usually</em>, depending on settings, runs roughly once per line, but it doesn’t have to.</p>
+<p>As a consequence, <em>never</em> depend on an object being deleted to perform some action at some time. More on that later, when we cover context managers.</p>
+<p>Let’s look at it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gc</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="k">class</span> <span class="nc">Boom</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Boom!&quot;</span><span class="p">)</span>
+
+
+<span class="n">ob</span> <span class="o">=</span> <span class="n">Boom</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gc</span><span class="o">.</span><span class="n">is_tracked</span><span class="p">(</span><span class="n">ob</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">ob</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">ob</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Boom!
+</pre></div>
+</div>
+</div>
+</div>
+<p>If all went well, you probably should have seen “Boom” above. Now let’s try a variation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ob</span> <span class="o">=</span> <span class="n">Boom</span><span class="p">()</span>
+<span class="n">ob</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Boom at 0x7fedd09ac2e0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">ob</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice anything? Probably not. Objects only get deleted when the refcount goes to 0 (okay, technically 1, since the GC holds a reference to it too; otherwise it wouldn’t know what to delete. So it goes to 0 as it gets deleted by the gc). IPython tracks outputs; you can access all of them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Out</span><span class="p">[</span><span class="mi">25</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Boom at 0x7fedd09ac2e0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>There it is! Since we can access it, it’s not collectible. (In fact, we can now access it from two Out’s! )</p>
+<p>That’s just one case where an object doesn’t get garbage collected until the final cleanup. You can also turn the garbage collector off, it could be running at a different setting, etc.</p>
+<p>Also, during the cleanup phase at the end, everything starts getting deleted. So even <em>modules</em> might not be safe to call in cleanups. You have been warned.</p>
+<p>Don’t use <code class="docutils literal notranslate"><span class="pre">__del__</span></code> in almost all cases, except for emergency cleanup. There is a better way if you want “action at a distance”, as I like to call it; we will see it when we get to context managers.</p>
+</div>
+<div class="section" id="importing">
+<h2><span class="section-number">1.6. </span>Importing<a class="headerlink" href="#importing" title="Permalink to this headline">¶</a></h2>
+<p>Caveat: A few minor details below will not be quite right for namespace packages, which do not contain an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>. They are not heavily used, and designed for a very specific purpose which we won’t cover (combining packages physically sitting in different places). And the only change is I’d have to be much more wordy but would still basically be saying the same things.</p>
+<div class="section" id="importing-basics">
+<h3><span class="section-number">1.6.1. </span>Importing Basics<a class="headerlink" href="#importing-basics" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">a.b</span>       <span class="c1"># line 1</span>
+<span class="kn">from</span> <span class="nn">a</span> <span class="kn">import</span> <span class="n">b</span>  <span class="c1"># line 2</span>
+</pre></div>
+</div>
+<p>So, question: is <code class="docutils literal notranslate"><span class="pre">b</span></code> a module (<code class="docutils literal notranslate"><span class="pre">b.py</span></code>), a package (<code class="docutils literal notranslate"><span class="pre">b/__init__.py</span></code>), or an object if line 1 is valid? How about 2?</p>
+<p>The rule: The left part must be a package or module. The right part of a <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span> <span class="pre">...</span></code> statement can be anything.</p>
+<p>All packages that appear in this statement (seperated by dots) have their <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> run unconditionally.</p>
+<blockquote>
+<div><p>Suggestion: The <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">a</span> <span class="pre">import</span> <span class="pre">b</span></code> syntax should be reserved for <code class="docutils literal notranslate"><span class="pre">b</span></code> being an object. It’s more confusing if it’s a module/package. This syntax is usually best reserved for CamelCase classes or mayne very commonly used functions. Both syntaxes support a final <code class="docutils literal notranslate"><span class="pre">as</span></code> clause to rename the thing being imported - so <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">a.b</span> <span class="pre">as</span> <span class="pre">b</span></code> will clearly tell your reader that <code class="docutils literal notranslate"><span class="pre">b</span></code> must be a module.</p>
+</div></blockquote>
+<p>So, a second question: is this valid?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">a</span>
+<span class="n">a</span><span class="o">.</span><span class="n">b</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">b</span></code> is an object in <code class="docutils literal notranslate"><span class="pre">a</span></code>, then it is. If <code class="docutils literal notranslate"><span class="pre">b</span></code> is a package or module, this only works it imported in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> (in which case it is an object in <code class="docutils literal notranslate"><span class="pre">a</span></code>).</p>
+</div>
+<div class="section" id="circular-imports">
+<h3><span class="section-number">1.6.2. </span>Circular imports<a class="headerlink" href="#circular-imports" title="Permalink to this headline">¶</a></h3>
+<p>One dreaded message in Python is the circular import failure. This happens when you have something like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># chicken.py</span>
+
+<span class="kn">from</span> <span class="nn">egg</span> <span class="kn">import</span> <span class="n">make_egg</span>
+
+<span class="k">def</span> <span class="nf">make_chicken</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">make_egg</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># egg.py</span>
+
+<span class="kn">from</span> <span class="nn">chicken</span> <span class="kn">import</span> <span class="n">make_chicken</span>
+
+<span class="k">def</span> <span class="nf">make_egg</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">make_chicken</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Obviously, you’ll have a problem when you call this, but you can’t even load one of these files! You get a circular import error.</p>
+<p>To solve it, import modules/packages instead of objects. This is fine:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># chicken.py</span>
+
+<span class="kn">import</span> <span class="nn">egg</span>
+
+<span class="k">def</span> <span class="nf">make_chicken</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">egg</span><span class="o">.</span><span class="n">make_egg</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># egg.py</span>
+
+<span class="kn">import</span> <span class="nn">chicken</span>
+
+<span class="k">def</span> <span class="nf">make_egg</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">chicken</span><span class="o">.</span><span class="n">make_chicken</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The bodies of the functions are not run on import, so when egg imports chicken tries to import egg, the fact that it’s not a complete module yet is not a problem. Just accessing anything inside egg would be, but that happens in the function definion, which doens’t run yet.</p>
+<p>Now, you still have a chicken and egg problem if you run it, but at least you can import the files.</p>
+</div>
+<div class="section" id="where-do-imports-come-from">
+<h3><span class="section-number">1.6.3. </span>Where do imports come from?<a class="headerlink" href="#where-do-imports-come-from" title="Permalink to this headline">¶</a></h3>
+<p>If I <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">a</span></code>, where is <code class="docutils literal notranslate"><span class="pre">a</span></code>? Python works down <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sys.path</span></code> <em>starts with</em> <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code> - be careful about using this, and it <em>does</em> override system site packages</p></li>
+<li><p>Then the standard library follows</p></li>
+<li><p>Then the system site packages and user site packages</p></li>
+</ul>
+<p>So a package containing <code class="docutils literal notranslate"><span class="pre">package/sys.py</span></code> is fine, even <code class="docutils literal notranslate"><span class="pre">package/__init__.py</span></code> will be able to import the normal <code class="docutils literal notranslate"><span class="pre">sys</span></code>, and has to import <code class="docutils literal notranslate"><span class="pre">package.sys</span></code> or <code class="docutils literal notranslate"><span class="pre">.sys</span></code> to get the local <code class="docutils literal notranslate"><span class="pre">sys.py</span></code>.</p>
+<blockquote>
+<div><p>You may see <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">absolute_import</span></code>. This was from Python 2, causing the import system to work like Python 3 and prioritize the system site packages over local packages. With the default behavior, Python 2 could not access the system modules if a local module had the same name!</p>
+</div></blockquote>
+</div>
+<div class="section" id="relative-imports">
+<h3><span class="section-number">1.6.4. </span>Relative imports<a class="headerlink" href="#relative-imports" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.sys</span> <span class="kn">import</span> <span class="n">my_function</span>
+</pre></div>
+</div>
+<p>These all you to avoid writing the name of your library again, but have some drawbacks. They only work in the syntax above (<code class="docutils literal notranslate"><span class="pre">from</span></code>), they only work when running <em>as</em> a package (so a <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>), you can’t use them in a non-library <code class="docutils literal notranslate"><span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;</span></code> file that you directly run (but <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">...</span></code> runs are fine). If you are avoiding circular imports, this can be tricky to use, since you need to import modules, and putting the module on the far right is not ideal.</p>
+<p>The main reasons to use this are to allow your library to be renamed easily - one place this might happen is in vendoring. Most normal libraries do not need to support vendoring; only libraries that are <em>used</em> by a tool like <code class="docutils literal notranslate"><span class="pre">pip</span></code> need to support it.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-level-up-your-python-py",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-level-up-your-python-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="0%20Intro.html" title="previous page">Level Up Your Python</a>
+    <a class='right-next' id="next-link" href="1.1b%20Intro%20to%20Classes.html" title="next page"><span class="section-number">2. </span>Intro to classes</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Henry Schreiner<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

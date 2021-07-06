@@ -1,0 +1,578 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Using packages &#8212; Level Up Your Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Creating packages" href="2.7%20Creating%20Packages.html" />
+    <link rel="prev" title="5. Static Type Hinting" href="2.5%20Static%20Typing.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/LevelUpYourPython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Level Up Your Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0%20Intro.html">
+   Level Up Your Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Object Model
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.1%20Memory%20Model.html">
+   1. Python Object Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.1b%20Intro%20to%20Classes.html">
+   2. Intro to classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.2%20Classes.html">
+   3. Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.3%20Logging.html">
+   4. Logging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.4%20Debugging.html">
+   5. Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.5%20Profiling.html">
+   6. Profiling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Syntax
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.1%20Errors.html">
+   1. Errors and catching them
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.2%20Generators.html">
+   2. Generators (Iterators)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.3%20Decorators.html">
+   3. Decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.4%20Context%20Managers.html">
+   4. Context Managers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.5%20Static%20Typing.html">
+   5. Static Type Hinting
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Using packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.7%20Creating%20Packages.html">
+   7. Creating packages
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Libraries
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.1%20PyTest.html">
+   1. PyTest: Unit Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.2%20NumPy.html">
+   2. NumPy: Numeric computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.3%20Pandas.html">
+   3. Pandas: DataFrames for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.4%20Numba.html">
+   4. Numba: JIT for Speed!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.5%20Pybind11.html">
+   5. Pybind11: Use C++ libraries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.6%20Code%20Quality%20and%20CI.html">
+   6. Code Quality and CI
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/2.6 Using Packages.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/henryiii/level-up-your-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/henryiii/level-up-your-python/main?urlpath=lab/tree/notebooks/2.6 Using Packages.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-a-package">
+   6.1. Installing a package
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#safe-libraries">
+     6.1.1. Safe libraries
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pipx-pip-for-executables">
+     6.1.2. pipx: pip for executables!
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#directly-running-applications">
+       6.1.2.1. Directly running applications
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#environment-tools">
+     6.1.3. Environment tools
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nox-and-tox">
+     6.1.4. Nox and Tox
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-launcher">
+     6.1.5. Python launcher
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#environments">
+   6.2. Environments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#environment-specification">
+     6.2.1. Environment specification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#locking-an-environment">
+     6.2.2. Locking an environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dev-environments-or-extras">
+     6.2.3. Dev environments or Extras
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conda-environments">
+     6.2.4. Conda environments
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="using-packages">
+<h1><span class="section-number">6. </span>Using packages<a class="headerlink" href="#using-packages" title="Permalink to this headline">¶</a></h1>
+<p>When you are programming, usually you are solving a problem - the programming is simply a means to an end. If that’s the case, then packaging is a means to a means to an end.</p>
+<p>Packaging is of my favorite subjects, because it’s absolutely critical as soon as you:</p>
+<ul class="simple">
+<li><p>Work on more than one thing</p></li>
+<li><p>Share your work with anyone (even if not as a package)</p></li>
+<li><p>Work in more than one place</p></li>
+<li><p>Upgrade or change anything on your computer</p></li>
+</ul>
+<p>Unfortunately, packing has a <em>lot</em> of historical cruft, bad practices that have easy solutions today but are still propagated.</p>
+<p>We will split our focus into two situations, then pull both ideas together.</p>
+<div class="section" id="installing-a-package">
+<h2><span class="section-number">6.1. </span>Installing a package<a class="headerlink" href="#installing-a-package" title="Permalink to this headline">¶</a></h2>
+<p>You will see two <em>very</em> common recommendations:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install &lt;package&gt;         <span class="c1"># Use only in virtual environment!</span>
+pip install --user &lt;package&gt;  <span class="c1"># Almost never use</span>
+</pre></div>
+</div>
+<p>Don’t use them unless you know exactly what you are doing! The first one will try to install globally, and if you don’t have permission, will install to your user site packages (as of a recent pip update). In global site packages, you can get conflicting versions of libraries, you can’t tell what you’ve installed for what, it’s a mess. And user site packages are worse, because all installs of Python on your computer share it, so you might override and break things you didn’t intend to.</p>
+<p>The solution depends on what you are doing:</p>
+<div class="section" id="safe-libraries">
+<h3><span class="section-number">6.1.1. </span>Safe libraries<a class="headerlink" href="#safe-libraries" title="Permalink to this headline">¶</a></h3>
+<p>There are likely a <em>few</em> libraries (possibly one) that you just have to install globally. Go ahead, but be careful (and always use your system package manager instead if you can, like <a class="reference external" href="https://brew.sh"><code class="docutils literal notranslate"><span class="pre">brew</span></code> on macOS</a> or the Windows ones - Linux package managers tend to be too old to use for Python libraries).</p>
+<p>Ideas for safe libraries: the other libraries you see listed in this lesson! It’s likely better than bootstrapping them. In fact, you can get away with just one:</p>
+</div>
+<div class="section" id="pipx-pip-for-executables">
+<h3><span class="section-number">6.1.2. </span>pipx: pip for executables!<a class="headerlink" href="#pipx-pip-for-executables" title="Permalink to this headline">¶</a></h3>
+<p>If you are installing an “application”, that is, it has a script end-point and you don’t expect to import it, <em>do not use pip</em>; use <a class="reference external" href="https://pypa.github.io/pipx/">pipx</a>. It will isolate it in a virtual environment, but hide all that for you, and then you’ll just have an application you can use with no global/user side effects!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pipx  <span class="c1"># Easier to install like this</span>
+
+pipx install black
+black myfile.py
+</pre></div>
+</div>
+<p>Now you have “black”, but nothing has changed in your global site packages! You cannot import black or any of it’s dependencies! There are no conflicting requirements (more common in pip 20.3+, which now will refuse to install two packages that have incompatible requirements).</p>
+<div class="section" id="directly-running-applications">
+<h4><span class="section-number">6.1.2.1. </span>Directly running applications<a class="headerlink" href="#directly-running-applications" title="Permalink to this headline">¶</a></h4>
+<p>Pipx also has a very powerful feature: you can install and run an application in a temporary environment!</p>
+<p>For example, this works just as well as the second two lines above:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipx run black myfile.py
+</pre></div>
+</div>
+<p>The first time you do this, pipx create a venv and puts black in it, then runs it. If you run it again, it will reuse the cached environment if it hasn’t been cleaned up yet, so it’s fast.</p>
+<p>Another example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipx run build
+</pre></div>
+</div>
+<blockquote>
+<div><p>This is great for CI! Pipx is installed by default in GitHub Actions; you do not need <code class="docutils literal notranslate"><span class="pre">actions/setup-python</span></code> to run it.</p>
+</div></blockquote>
+<p>If the command and the package have different names, then you have to write this with a <code class="docutils literal notranslate"><span class="pre">--spec</span></code>. Currently, you also have to use spec to pin a version.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipx run --spec <span class="nv">cibuildwheel</span><span class="o">==</span><span class="m">1</span>.12.0 cibuildwheel --platform linux
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="environment-tools">
+<h3><span class="section-number">6.1.3. </span>Environment tools<a class="headerlink" href="#environment-tools" title="Permalink to this headline">¶</a></h3>
+<p>There are other tools we are about to talk about, like <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code>, <code class="docutils literal notranslate"><span class="pre">poetry</span></code>, <code class="docutils literal notranslate"><span class="pre">pipenv</span></code>, <code class="docutils literal notranslate"><span class="pre">nox</span></code>, <code class="docutils literal notranslate"><span class="pre">tox</span></code>, etc. that you could also install with <code class="docutils literal notranslate"><span class="pre">pip</span></code> (or better yet, with <code class="docutils literal notranslate"><span class="pre">pipx</span></code>), and are <em>not too</em> likely to interfere or break down if you use <code class="docutils literal notranslate"><span class="pre">pip</span></code>. But keep it to a minimum or use <code class="docutils literal notranslate"><span class="pre">pipx</span></code>.</p>
+</div>
+<div class="section" id="nox-and-tox">
+<h3><span class="section-number">6.1.4. </span>Nox and Tox<a class="headerlink" href="#nox-and-tox" title="Permalink to this headline">¶</a></h3>
+<p>You can also use a task runner tool like <code class="docutils literal notranslate"><span class="pre">nox</span></code> or <code class="docutils literal notranslate"><span class="pre">tox</span></code>. These create and manage virtual environment for each task (called sessions in <code class="docutils literal notranslate"><span class="pre">nox</span></code>). This is a very simple way to avoid making and entering an environment, and is great for less common tasks, like scripts and docs.</p>
+</div>
+<div class="section" id="python-launcher">
+<h3><span class="section-number">6.1.5. </span>Python launcher<a class="headerlink" href="#python-launcher" title="Permalink to this headline">¶</a></h3>
+<p>The Python laucher for Unix (a Rust port of the one bundled with Python on Windows by a Python core developer) supports virtual environments in a <code class="docutils literal notranslate"><span class="pre">.venv</span></code> folder. So if you make a virtual environment with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">.venv</span></code> or <code class="docutils literal notranslate"><span class="pre">virtualenv</span> <span class="pre">.venv</span></code>, then you can just run <code class="docutils literal notranslate"><span class="pre">py</span> <span class="pre">&lt;stuff&gt;</span></code> instead of <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;stuff&gt;</span></code> and it uses the virtual environment for you. This feature has not been back-ported to the Windows version yet.</p>
+</div>
+</div>
+<div class="section" id="environments">
+<h2><span class="section-number">6.2. </span>Environments<a class="headerlink" href="#environments" title="Permalink to this headline">¶</a></h2>
+<p>There are several environment systems available for Python, and they generally come in two categories. The Python Packaging Authority supports PyPI (Python Package Index), and all the systems except one build on this (usually by pip somewhere). The lone exception is Conda, which has a completely separate set of packages (often but not always with matching names).</p>
+<div class="section" id="environment-specification">
+<h3><span class="section-number">6.2.1. </span>Environment specification<a class="headerlink" href="#environment-specification" title="Permalink to this headline">¶</a></h3>
+<p>All systems have an environment specification, something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span>
+<span class="n">rich</span> <span class="o">&gt;=</span><span class="mf">9.8</span>
+</pre></div>
+</div>
+<p>This is technically a valid <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file. If you wanted to use it, you would do:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv venv
+. venv/bin/activate
+pip install -r requirements.txt
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">deactivate</span></code> to “leave” the virtual environment.</p>
+<p>These two tools (venv to isolate a virtual environment) and the requirements file let you set up non-interacting places to work for each project, and you can set up again anywhere.</p>
+</div>
+<div class="section" id="locking-an-environment">
+<h3><span class="section-number">6.2.2. </span>Locking an environment<a class="headerlink" href="#locking-an-environment" title="Permalink to this headline">¶</a></h3>
+<p>But now you want to share your environment with someone else. But let’s say <code class="docutils literal notranslate"><span class="pre">rich</span></code> updated and now something doesn’t work. You have a working environment (until you update), but your friend does not, theirs installed broken (this just happened to me with <code class="docutils literal notranslate"><span class="pre">IPython</span></code> and <code class="docutils literal notranslate"><span class="pre">jedi</span></code>, by the way). How do you recover a working version without going back to your computer? With a lock file! This would look something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span> <span class="o">==</span><span class="mf">2.25.1</span>
+<span class="n">rich</span> <span class="o">==</span><span class="mf">9.8.0</span>
+<span class="n">typing</span><span class="o">-</span><span class="n">extensions</span> <span class="o">==</span><span class="mf">3.7.4</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>This file lists all installed packages with exact versions, so now you can restore your environment if you need to. However, managing these by hand is not ideal and easy to forget. If you like this, <code class="docutils literal notranslate"><span class="pre">pipenv</span></code>, which was taken over by <code class="docutils literal notranslate"><span class="pre">PyPA</span></code> has a <code class="docutils literal notranslate"><span class="pre">Pipfile</span></code> and a <code class="docutils literal notranslate"><span class="pre">Pipfile.lock</span></code> which do exactly this, and combines the features of a virtual environment and pip. You can look into it off-line, but we are moving on. We’ll encounter this idea again.</p>
+</div>
+<div class="section" id="dev-environments-or-extras">
+<h3><span class="section-number">6.2.3. </span>Dev environments or Extras<a class="headerlink" href="#dev-environments-or-extras" title="Permalink to this headline">¶</a></h3>
+<p>Some environment tools have the idea of a “dev” environment, or optional components to the environment that you can ask for. Look for them wherever fine environments are made.</p>
+<p>When you install a package via pip or any of the (non-locked) methods, you can also ask for “extras”, though you have to know about them beforehand. For example, <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">rich[jupyter]</span></code> will add some extra requirements for interacting with notebooks. <em>These add requirements only</em>, you can’t change the package with an extra.</p>
+</div>
+<div class="section" id="conda-environments">
+<h3><span class="section-number">6.2.4. </span>Conda environments<a class="headerlink" href="#conda-environments" title="Permalink to this headline">¶</a></h3>
+<p>If you use Conda, the environment file is called <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code>. The one we are using can be seen here:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../environment.yml</span>
+<span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">level-up-your-python</span>
+<span class="nt">channels</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python ==3.9</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">rich &gt;=10.4</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pandas &gt;=1.3</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">matplotlib &gt;=3</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">jupyterlab &gt;=3</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">numba &gt;=0.53</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nb_conda_kernels</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">numpy &gt;=1.21</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ipykernel &gt;=6.0</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ipywidgets</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">black</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mypy &gt;=0.900</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">line_profiler</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">jupyter-book</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">filprofiler</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pybind11</span>
+</pre></div>
+</div>
+<p>You can specify pip dependencies, too:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">pip</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">i_couldnt_think_of_a_library_missing_from_conda</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-level-up-your-python-py",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-level-up-your-python-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="2.5%20Static%20Typing.html" title="previous page"><span class="section-number">5. </span>Static Type Hinting</a>
+    <a class='right-next' id="next-link" href="2.7%20Creating%20Packages.html" title="next page"><span class="section-number">7. </span>Creating packages</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Henry Schreiner<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

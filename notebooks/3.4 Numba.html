@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Numba: JIT for Speed! &#8212; Level Up Your Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Pybind11: Use C++ libraries" href="3.5%20Pybind11.html" />
+    <link rel="prev" title="3. Pandas: DataFrames for Python" href="3.3%20Pandas.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/LevelUpYourPython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Level Up Your Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0%20Intro.html">
+   Level Up Your Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Object Model
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.1%20Memory%20Model.html">
+   1. Python Object Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.1b%20Intro%20to%20Classes.html">
+   2. Intro to classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.2%20Classes.html">
+   3. Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.3%20Logging.html">
+   4. Logging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.4%20Debugging.html">
+   5. Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.5%20Profiling.html">
+   6. Profiling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Syntax
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.1%20Errors.html">
+   1. Errors and catching them
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.2%20Generators.html">
+   2. Generators (Iterators)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.3%20Decorators.html">
+   3. Decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.4%20Context%20Managers.html">
+   4. Context Managers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.5%20Static%20Typing.html">
+   5. Static Type Hinting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.6%20Using%20Packages.html">
+   6. Using packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.7%20Creating%20Packages.html">
+   7. Creating packages
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Libraries
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.1%20PyTest.html">
+   1. PyTest: Unit Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.2%20NumPy.html">
+   2. NumPy: Numeric computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.3%20Pandas.html">
+   3. Pandas: DataFrames for Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Numba: JIT for Speed!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.5%20Pybind11.html">
+   5. Pybind11: Use C++ libraries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.6%20Code%20Quality%20and%20CI.html">
+   6. Code Quality and CI
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/3.4 Numba.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/henryiii/level-up-your-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/henryiii/level-up-your-python/main?urlpath=lab/tree/notebooks/3.4 Numba.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#first-example">
+   4.1. First example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jit-example">
+   4.2. JIT example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-setup">
+     4.2.1. Problem setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#range-kutta-introduction">
+     4.2.2. Range-Kutta introduction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-numba">
+     4.2.3. Adding Numba
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#see-also">
+   4.3. See also:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="numba-jit-for-speed">
+<h1><span class="section-number">4. </span>Numba: JIT for Speed!<a class="headerlink" href="#numba-jit-for-speed" title="Permalink to this headline">¶</a></h1>
+<p>Numba is one of the most exciting things to happen to Python. It is a library than take a Python function, convert the bytecode to LLVM, compile it, and run it at full machine speed!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numba</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="first-example">
+<h2><span class="section-number">4.1. </span>First example<a class="headerlink" href="#first-example" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">b</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+<span class="nd">@numba</span><span class="o">.</span><span class="n">vectorize</span>
+<span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">b</span> <span class="o">**</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">c</span> <span class="o">=</span> <span class="n">f1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.84 ms ± 4.27 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">f2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 245 ms, sys: 4.04 ms, total: 249 ms
+Wall time: 248 ms
+</pre></div>
+</div>
+</div>
+</div>
+<p>This probably took a bit longer. The very first time you JIT compile something, it takes time to do the compliation. Numba is pretty fast, but you probably still pay a cost. There are things you can do to control when this happens, but there is a small cost.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">c</span> <span class="o">=</span> <span class="n">f2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>124 µs ± 81 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>It took the function we defined, pulled it apart, and turned into Low Level Virtual Machine (LLVM) code, and compiled it. No special strings or special syntax; it is just a (large) subset of Python and NumPy. And users and libraries can extend it too. It also supports:</p>
+<ul class="simple">
+<li><p>Vectorized, general vectorized, or regular functions</p></li>
+<li><p>Ahead of time compilation, JIT, or dynamic JIT</p></li>
+<li><p>Parallelized targets</p></li>
+<li><p>GPU targets via CUDA or ROCm</p></li>
+<li><p>Nesting</p></li>
+<li><p>Creating cfunction callbacks</p></li>
+</ul>
+<p>It is almost always as fast or faster than any other compiled solution (minus the JIT time). A couple of years ago it became much easier to install (via PIP with LLVMLite’s lightweight and independent LLVM build).</p>
+</div>
+<div class="section" id="jit-example">
+<h2><span class="section-number">4.2. </span>JIT example<a class="headerlink" href="#jit-example" title="Permalink to this headline">¶</a></h2>
+<p>The example above using <code class="docutils literal notranslate"><span class="pre">&#64;numba.vectorize</span></code> to make “ufunc” like functions. These can take any (broadcastable) size of array(s) and produces an output array. It’s similar to <code class="docutils literal notranslate"><span class="pre">&#64;numpy.vectorize</span></code> which just loops in Python. Let’s try controling the looping ourselves, using a ODE solver:</p>
+<div class="section" id="problem-setup">
+<h3><span class="section-number">4.2.1. </span>Problem setup<a class="headerlink" href="#problem-setup" title="Permalink to this headline">¶</a></h3>
+<p>Let’s setup an ODE function to solve. We can write our ODE as a system of linear first order ODE equations:</p>
+<p>The harmonic motion equation can be written in terms of <span class="math notranslate nohighlight">\(\mathbf{f}(t, \mathbf{y}) = \dot{\mathbf{y}}\)</span>, where this is in the standard form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{y} =
+\left(
+\begin{matrix}
+\dot{x} \\
+x
+\end{matrix}
+\right)
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{f}(t, \mathbf{y}) = 
+\dot{\mathbf{y}}
+=
+\left(
+\begin{matrix}
+\ddot{x} \\
+\dot{x}
+\end{matrix}
+\right)
+=
+\left(
+\begin{matrix}
+-\frac{k}{m} x \\
+\dot{x}
+\end{matrix}
+\right)
+=
+\left(
+\begin{matrix}
+-\frac{k}{m} y_1 \\
+y_0
+\end{matrix}
+\right)
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_max</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Size of x max</span>
+<span class="n">v_0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">koverm</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># k / m</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="s2">&quot;Y has two elements, x and v&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">koverm</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="range-kutta-introduction">
+<h3><span class="section-number">4.2.2. </span>Range-Kutta introduction<a class="headerlink" href="#range-kutta-introduction" title="Permalink to this headline">¶</a></h3>
+<p>Note that <span class="math notranslate nohighlight">\(h =  t_{n+1} - t_n \)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{y} = f(t,y)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\implies y = \int f(t,y) \, dt
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\implies y_{n+1} = y_{n} + \int_{t_n}^{t_{n+1}} f(t,y) \, dt
+\]</div>
+<p>Now, expand <span class="math notranslate nohighlight">\(f\)</span> in a Taylor series around the <em>midpoint</em> of the interval:</p>
+<div class="math notranslate nohighlight">
+\[
+f(t,y) \approx  f(t_{n+\frac{1}{2}},y_{n+\frac{1}{2}})
+       + \left( t - t_{n+\frac{1}{2}}\right)
+       \dot{f}(t_{n+\frac{1}{2}})
+       + \mathcal{O}(h^2)
+\]</div>
+<p>The second term here is symmetric in the interval, so all we have left is the first term in the integral:</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{t_n}^{t_{n+1}} f(t,y) \, dt \approx
+    h\, f(t_{n+\frac{1}{2}},y_{n+\frac{1}{2}}) + \mathcal{O}(h^3)
+\]</div>
+<p>Back into the original statement, we get:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1} \approx 
+\color{blue}{
+y_{n}
++ h\, f(t_{n+\frac{1}{2}},y_{n+\frac{1}{2}})
+}
++ \mathcal{O}(h^3)
+\tag{rk2}
+\]</div>
+<p>We’ve got one more problem! How do we calculate <span class="math notranslate nohighlight">\(f(t_{n+\frac{1}{2}},y_{n+\frac{1}{2}})\)</span>? We can use the Euler’s algorithm that we saw last time:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+\frac{1}{2}}
+\approx y_n + \frac{1}{2} h \dot{y}
+= \color{red}{
+y_n + \frac{1}{2} h f(t_{n},y_{n})
+}
+\]</div>
+<p>Putting it together, this is our RK2 algorithm:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{y}_{n+1} \approx
+\color{blue}{
+\mathbf{y}_{n}
++ \mathbf{k}_2
+}
+\tag{1.0}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}_1 = h \mathbf{f}(t_n,\, \mathbf{y}_n)
+\tag{1.1}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}_2 = h \mathbf{f}(t_n + \frac{h}{2},\, \color{red}{\mathbf{y}_n
++ \frac{\mathbf{k}_1}{2}})
+\tag{1.2}
+\]</div>
+<p>We’ve picked up bold face to indicate that we can have a vector of ODEs.</p>
+<p>We can get the RK4 algorithm by keeping another non-zero term in the Taylor series:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{y}_{n+1} \approx
+\mathbf{y}_{n}
++ \frac{1}{6} (\mathbf{k}_1 + 2 \mathbf{k}_2 + 2 \mathbf{k}_3 + \mathbf{k}_4 )
+\tag{2.0}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}_1 = h \mathbf{f}(t_n,\, \mathbf{y}_n)
+\tag{2.1}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}_2 = h \mathbf{f}(t_n + \frac{h}{2},\,
+                            \mathbf{y}_n + \frac{\mathrm{k}_1}{2})
+\tag{2.2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}_3 = h \mathbf{f}(t_n + \frac{h}{2},\,
+                            \mathbf{y}_n + \frac{\mathrm{k}_2}{2})
+\tag{2.3}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{k}_4 = h \mathbf{f}(t_n + h,\,
+                            \mathbf{y}_n + \mathrm{k}_3)
+\tag{2.4}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rk4_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">init_y</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">init_y</span><span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span> <span class="n">order</span><span class="p">))</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">init_y</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+        <span class="n">k1</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>  <span class="c1"># 2.1</span>
+        <span class="n">k2</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">k1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 2.2</span>
+        <span class="n">k3</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">k2</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 2.3</span>
+        <span class="n">k4</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">k3</span><span class="p">)</span>  <span class="c1"># 2.4</span>
+
+        <span class="n">y</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">6</span> <span class="o">*</span> <span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>  <span class="c1"># 2.0</span>
+
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rk4_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="n">x_max</span><span class="p">,</span> <span class="n">v_0</span><span class="p">],</span> <span class="n">ts</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ts</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;--&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3.4 Numba_22_0.png" src="../_images/3.4 Numba_22_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">1000</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rk4_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="n">x_max</span><span class="p">,</span> <span class="n">v_0</span><span class="p">],</span> <span class="n">ts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24 ms ± 422 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-numba">
+<h3><span class="section-number">4.2.3. </span>Adding Numba<a class="headerlink" href="#adding-numba" title="Permalink to this headline">¶</a></h3>
+<p>Normally, you’d use a decorator here, but I’m lazy and don’t want to rewrite the function, so I’ll just manually apply the decorator, since we covered what the syntax actually does.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_jit</span> <span class="o">=</span> <span class="n">numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">rk4_ivp_jit</span> <span class="o">=</span> <span class="n">numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">rk4_ivp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">1000</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rk4_ivp_jit</span><span class="p">(</span><span class="n">f_jit</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_max</span><span class="p">,</span> <span class="n">v_0</span><span class="p">]),</span> <span class="n">ts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.39 ms ± 71.3 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can inspect the types if you’d like to add them after running once:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_jit</span><span class="o">.</span><span class="n">inspect_types</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f (float64, array(float64, 1d, C))
+--------------------------------------------------------------------------------
+# File: /tmp/ipykernel_3758/396120679.py
+# --- LINE 6 --- 
+
+def f(t, y):
+
+    # --- LINE 7 --- 
+
+    &quot;Y has two elements, x and v&quot;
+
+    # --- LINE 8 --- 
+    # label 0
+    #   t = arg(0, name=t)  :: float64
+    #   del t
+    #   y = arg(1, name=y)  :: array(float64, 1d, C)
+    #   $2load_global.0 = global(np: &lt;module &#39;numpy&#39; from &#39;/usr/share/miniconda/envs/level-up-your-python/lib/python3.9/site-packages/numpy/__init__.py&#39;&gt;)  :: Module(&lt;module &#39;numpy&#39; from &#39;/usr/share/miniconda/envs/level-up-your-python/lib/python3.9/site-packages/numpy/__init__.py&#39;&gt;)
+    #   $4load_method.1 = getattr(value=$2load_global.0, attr=array)  :: Function(&lt;built-in function array&gt;)
+    #   del $2load_global.0
+    #   $6load_global.2 = global(koverm: 1)  :: Literal[int](1)
+    #   $8unary_negative.3 = unary(fn=&lt;built-in function neg&gt;, value=$6load_global.2)  :: int64
+    #   del $6load_global.2
+    #   $const12.5 = const(int, 1)  :: Literal[int](1)
+    #   $14binary_subscr.6 = static_getitem(value=y, index=1, index_var=$const12.5, fn=&lt;built-in function getitem&gt;)  :: float64
+    #   del $const12.5
+    #   $16binary_multiply.7 = $8unary_negative.3 * $14binary_subscr.6  :: float64
+    #   del $8unary_negative.3
+    #   del $14binary_subscr.6
+    #   $const20.9 = const(int, 0)  :: Literal[int](0)
+    #   $22binary_subscr.10 = static_getitem(value=y, index=0, index_var=$const20.9, fn=&lt;built-in function getitem&gt;)  :: float64
+    #   del y
+    #   del $const20.9
+    #   $24build_list.11 = build_list(items=[Var($16binary_multiply.7, 396120679.py:8), Var($22binary_subscr.10, 396120679.py:8)])  :: list(float64)&lt;iv=None&gt;
+    #   del $22binary_subscr.10
+    #   del $16binary_multiply.7
+    #   $26call_method.12 = call $4load_method.1($24build_list.11, func=$4load_method.1, args=[Var($24build_list.11, 396120679.py:8)], kws=(), vararg=None)  :: (list(float64)&lt;iv=None&gt;,) -&gt; array(float64, 1d, C)
+    #   del $4load_method.1
+    #   del $24build_list.11
+    #   $28return_value.13 = cast(value=$26call_method.12)  :: array(float64, 1d, C)
+    #   del $26call_method.12
+    #   return $28return_value.13
+
+    return np.array([-koverm * y[1], y[0]])
+
+
+================================================================================
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="see-also">
+<h2><span class="section-number">4.3. </span>See also:<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/henryiii/compclass/blob/master/classes/week10/2_rk.ipynb">CompClass: RK</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-level-up-your-python-py",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-level-up-your-python-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="3.3%20Pandas.html" title="previous page"><span class="section-number">3. </span>Pandas: DataFrames for Python</a>
+    <a class='right-next' id="next-link" href="3.5%20Pybind11.html" title="next page"><span class="section-number">5. </span>Pybind11: Use C++ libraries</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Henry Schreiner<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

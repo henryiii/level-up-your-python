@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. PyTest: Unit Testing &#8212; Level Up Your Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. NumPy: Numeric computing" href="3.2%20NumPy.html" />
+    <link rel="prev" title="7. Creating packages" href="2.7%20Creating%20Packages.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/LevelUpYourPython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Level Up Your Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0%20Intro.html">
+   Level Up Your Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Object Model
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.1%20Memory%20Model.html">
+   1. Python Object Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.1b%20Intro%20to%20Classes.html">
+   2. Intro to classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.2%20Classes.html">
+   3. Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.3%20Logging.html">
+   4. Logging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.4%20Debugging.html">
+   5. Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.5%20Profiling.html">
+   6. Profiling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Syntax
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.1%20Errors.html">
+   1. Errors and catching them
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.2%20Generators.html">
+   2. Generators (Iterators)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.3%20Decorators.html">
+   3. Decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.4%20Context%20Managers.html">
+   4. Context Managers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.5%20Static%20Typing.html">
+   5. Static Type Hinting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.6%20Using%20Packages.html">
+   6. Using packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.7%20Creating%20Packages.html">
+   7. Creating packages
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Libraries
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. PyTest: Unit Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.2%20NumPy.html">
+   2. NumPy: Numeric computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.3%20Pandas.html">
+   3. Pandas: DataFrames for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.4%20Numba.html">
+   4. Numba: JIT for Speed!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.5%20Pybind11.html">
+   5. Pybind11: Use C++ libraries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.6%20Code%20Quality%20and%20CI.html">
+   6. Code Quality and CI
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/3.1 PyTest.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/henryiii/level-up-your-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/henryiii/level-up-your-python/main?urlpath=lab/tree/notebooks/3.1 PyTest.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-should-be-easy">
+   1.1. Tests should be easy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-should-test-for-failures-too">
+   1.2. Tests should test for failures too
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-should-stay-easy-when-scaling-out">
+   1.3. Tests should stay easy when scaling out
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-should-be-organized">
+   1.4. Tests should be organized
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-should-test-the-installed-version-not-the-local-version">
+   1.5. Tests should test the installed version, not the local version
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mock-expensive-or-tricky-calls">
+     1.5.1. Mock expensive or tricky calls
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pytest-unit-testing">
+<h1><span class="section-number">1. </span>PyTest: Unit Testing<a class="headerlink" href="#pytest-unit-testing" title="Permalink to this headline">¶</a></h1>
+<p>I highly recommend taking some time to learn advanced PyTest, as anything that makes writing tests easiser enables more and better testing, which is always a plus!</p>
+<div class="section" id="tests-should-be-easy">
+<h2><span class="section-number">1.1. </span>Tests should be easy<a class="headerlink" href="#tests-should-be-easy" title="Permalink to this headline">¶</a></h2>
+<p>Always use PyTest. The built-in unittest is <em>very</em> verbose; the simpler the writing of tests, the more tests you will write!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">MyTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_something</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Contrast this to pytest:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_something</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>PyTest still gives you clear breakdowns, including what the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> actually is, even though it seems to use the Python <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement! You don’t need to set up a class (though you can), and you don’t need to remember 50 or so different <code class="docutils literal notranslate"><span class="pre">self.assert*</span></code> functions! PyTest can also run unittest tests, as well as the old <code class="docutils literal notranslate"><span class="pre">nose</span></code> package’s tests, too.</p>
+<p>Approximately equals is normally ugly to check, but PyTest makes it easy too:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytest</span> <span class="kn">import</span> <span class="n">approx</span>
+
+<span class="k">def</span> <span class="nf">test_approx</span><span class="p">():</span>
+    <span class="mf">.3333333333333</span> <span class="o">==</span> <span class="n">approx</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tests-should-test-for-failures-too">
+<h2><span class="section-number">1.2. </span>Tests should test for failures too<a class="headerlink" href="#tests-should-test-for-failures-too" title="Permalink to this headline">¶</a></h2>
+<p>You should make sure that expected errors are thrown:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="k">def</span> <span class="nf">test_raises</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">):</span>
+        <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>You can check for warnings as well, with <code class="docutils literal notranslate"><span class="pre">pytest.warns</span></code> or <code class="docutils literal notranslate"><span class="pre">pytest.deprecated_call</span></code>.</p>
+</div>
+<div class="section" id="tests-should-stay-easy-when-scaling-out">
+<h2><span class="section-number">1.3. </span>Tests should stay easy when scaling out<a class="headerlink" href="#tests-should-stay-easy-when-scaling-out" title="Permalink to this headline">¶</a></h2>
+<p>PyTest <a class="reference external" href="https://docs.pytest.org/en/stable/fixture.html">uses fixtures</a> to represent complex ideas, like setup/teardown, temporary resources, or parameterization.</p>
+<p>A fixture looks like a function argument; PyTest recognizes them by name:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_printout</span><span class="p">(</span><span class="n">capsys</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+    
+    <span class="n">captured</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="s2">&quot;hello&quot;</span> <span class="ow">in</span> <span class="n">captured</span><span class="o">.</span><span class="n">out</span>
+</pre></div>
+</div>
+<p>Making a new fixture is not too hard, and can be placed in the test file or in <code class="docutils literal notranslate"><span class="pre">conftest.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">ints</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">param</span>
+</pre></div>
+</div>
+<p>We could have left off <code class="docutils literal notranslate"><span class="pre">ids</span></code>, but for complex inputs, this lets the tests have beautiful names.</p>
+<p>Now, you can use it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_on_ints</span><span class="p">(</span><span class="n">ints</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">ints</span><span class="o">**</span><span class="mi">2</span> <span class="o">==</span> <span class="n">ints</span><span class="o">*</span><span class="n">ints</span>
+</pre></div>
+</div>
+<p>Now you will get three tests, <code class="docutils literal notranslate"><span class="pre">test_on_ints-one</span></code>, <code class="docutils literal notranslate"><span class="pre">test_on_ints-two</span></code>, and <code class="docutils literal notranslate"><span class="pre">test_on_ints-three</span></code>!</p>
+<p>Fixtures can be scoped, allowing simple setup/teardown (use <code class="docutils literal notranslate"><span class="pre">yield</span></code> if you need to run teardown). You can even set <code class="docutils literal notranslate"><span class="pre">autouse=True</span></code> to use a fixture always in a file or module (via <code class="docutils literal notranslate"><span class="pre">conftest.py</span></code>). You can have <code class="docutils literal notranslate"><span class="pre">conftest.py</span></code>’s in nested folders, too!</p>
+<p>Here’s an advanced example, which also uses <code class="docutils literal notranslate"><span class="pre">monkeypatch</span></code>, which is a great way for making things hard to split into units into unit tests. Let’s say you wanted to make a test that “tricked” your code into thinking that it was running on different platforms:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">platform</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Linux&#39;</span><span class="p">,</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">,</span> <span class="s1">&#39;Windows&#39;</span><span class="p">],</span> <span class="n">autouse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">platform_system</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">monkeypatch</span><span class="p">):</span>
+    <span class="n">monkeypatch</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="n">platform</span><span class="p">,</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">param</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now every test in the file this is in (or the directory that this is in if in conftest) will run three times, and each time will identify as a different <code class="docutils literal notranslate"><span class="pre">platform.system()</span></code>! Leave <code class="docutils literal notranslate"><span class="pre">autouse</span></code> off, and it becomes opt-in; adding <code class="docutils literal notranslate"><span class="pre">platform_system</span></code> to the list of arguments will opt in.</p>
+</div>
+<div class="section" id="tests-should-be-organized">
+<h2><span class="section-number">1.4. </span>Tests should be organized<a class="headerlink" href="#tests-should-be-organized" title="Permalink to this headline">¶</a></h2>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">pytest.mark.*</span></code> to mark tests, so you can easily turn on or off groups of tests, or do something else special with marked tests, like tests marked “slow”, for example. Probably the most useful built-in mark is <code class="docutils literal notranslate"><span class="pre">skipif</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skipif</span><span class="p">(</span><span class="s2">&quot;sys.version_info &lt; (3, 8)&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_only_on_37plus</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;x = 3&quot;</span>
+</pre></div>
+</div>
+<p>Now this test will only run on Python 3.8, and will be skipped on earlier versions. You don’t have to use a string for the condition, but if you don’t, add a <code class="docutils literal notranslate"><span class="pre">reason=</span></code> so there will still be nice printout explaining why the test was skipped.</p>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">xfail</span></code> for tests that are expected to fail (you can even strictly test them as failing if you want). You can use <code class="docutils literal notranslate"><span class="pre">parametrize</span></code> to make a single parameterized test instead of sharing them (with fixtures). There’s a <code class="docutils literal notranslate"><span class="pre">filterwarnings</span></code> mark, too.</p>
+<p>Many PyTest plugins support new marks too, like <code class="docutils literal notranslate"><span class="pre">pytest-parametrize</span></code>. You can also use custom marks to enable/disable groups of tests, or to pass data into fixtures.</p>
+</div>
+<div class="section" id="tests-should-test-the-installed-version-not-the-local-version">
+<h2><span class="section-number">1.5. </span>Tests should test the installed version, not the local version<a class="headerlink" href="#tests-should-test-the-installed-version-not-the-local-version" title="Permalink to this headline">¶</a></h2>
+<p>Your tests should run against an <em>installed</em> version of your code. Testing against the <em>local</em> version might work while the installed version does not (due to a missing file, changed paths, etc). This is one of the big reasons to use <code class="docutils literal notranslate"><span class="pre">/src/package</span></code> instead of <code class="docutils literal notranslate"><span class="pre">/package</span></code>, as <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pytest</span></code> will pick up local directories and <code class="docutils literal notranslate"><span class="pre">pytest</span></code> does not. Also, there may come a time when someone (possibly you) needs to run your tests off of a wheel or a conda package, or in a build system, and if you are unable to test against an installed version, you won’t be able to run your tests! (It happens more than you might think).</p>
+<div class="section" id="mock-expensive-or-tricky-calls">
+<h3><span class="section-number">1.5.1. </span>Mock expensive or tricky calls<a class="headerlink" href="#mock-expensive-or-tricky-calls" title="Permalink to this headline">¶</a></h3>
+<p>If you have to call something that is expensive or hard to call, it is often better to mock it. To isolate parts of your own code for “unit” testing, mocking is useful too. Combined with monkey patching (shown in an earlier example), this is a very powerful tool!</p>
+<p>Say we want to write a function that calls matplotlib. We could use <code class="docutils literal notranslate"><span class="pre">pytest-mpl</span></code> to capture images and compare them in our test, but that’s an integration test, not a unit test; and if something does go wrong, we are stuck comparing pictures, and we don’t know how our usage of matplotlib changed from the test report. Let’s see how we could mock it. We will use the <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code> plugin for PyTest, which simply adapts the built-in <code class="docutils literal notranslate"><span class="pre">unittest.mock</span></code> in a more native PyTest fashion as fixtures and such.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">mock_matplotlib</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">Mock</span><span class="p">(</span><span class="n">spec</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">Figure</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">Mock</span><span class="p">(</span><span class="n">spec</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">Axes</span><span class="p">)</span>
+    <span class="n">line2d</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">Mock</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">spec</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">(</span><span class="n">line2d</span><span class="p">,)</span>
+
+    <span class="c1"># Patch the main library if used directly</span>
+    <span class="n">mpl</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;matplotlib.pyplot&quot;</span><span class="p">,</span> <span class="n">autospec</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;matplotlib.pyplot.subplots&quot;</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">mpl</span><span class="o">=</span><span class="n">mpl</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, we’ve just mocked the parts we touch in our plot function that we need to test. We use <code class="docutils literal notranslate"><span class="pre">spec=</span></code> to get the mock to just respond to the same things that the original object would have responded to. We can set return values so that our objects behave like the real thing. Using it is simple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_my_plot</span><span class="p">(</span><span class="n">mock_matplotlib</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">mock_matplotlib</span><span class="o">.</span><span class="n">ax</span>
+    <span class="n">my_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">mock_calls</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span>
+        <span class="n">approx</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]),</span>
+        <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>If this changes, we immediately know exactly what changed - and this runs
+instantly, we aren’t making any images! While this is a little work to set up,
+it pays off in the long run.</p>
+<p>The documentation at <a class="reference external" href="https://pypi.org/project/pytest-mock/">pytest-mock</a> is
+helpful, though most of it just redirects to the standard library
+<a class="reference external" href="https://docs.python.org/3/library/unittest.mock.html">unittest.mock</a>.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-level-up-your-python-py",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-level-up-your-python-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="2.7%20Creating%20Packages.html" title="previous page"><span class="section-number">7. </span>Creating packages</a>
+    <a class='right-next' id="next-link" href="3.2%20NumPy.html" title="next page"><span class="section-number">2. </span>NumPy: Numeric computing</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Henry Schreiner<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

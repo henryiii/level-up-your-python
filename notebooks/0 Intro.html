@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level Up Your Python &#8212; Level Up Your Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Python Object Model" href="1.1%20Memory%20Model.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/LevelUpYourPython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Level Up Your Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   Level Up Your Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Object Model
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.1%20Memory%20Model.html">
+   1. Python Object Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.1b%20Intro%20to%20Classes.html">
+   2. Intro to classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.2%20Classes.html">
+   3. Object Oriented Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.3%20Logging.html">
+   4. Logging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.4%20Debugging.html">
+   5. Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.5%20Profiling.html">
+   6. Profiling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Syntax
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.1%20Errors.html">
+   1. Errors and catching them
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.2%20Generators.html">
+   2. Generators (Iterators)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.3%20Decorators.html">
+   3. Decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.4%20Context%20Managers.html">
+   4. Context Managers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.5%20Static%20Typing.html">
+   5. Static Type Hinting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.6%20Using%20Packages.html">
+   6. Using packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.7%20Creating%20Packages.html">
+   7. Creating packages
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Libraries
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.1%20PyTest.html">
+   1. PyTest: Unit Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.2%20NumPy.html">
+   2. NumPy: Numeric computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.3%20Pandas.html">
+   3. Pandas: DataFrames for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.4%20Numba.html">
+   4. Numba: JIT for Speed!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.5%20Pybind11.html">
+   5. Pybind11: Use C++ libraries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.6%20Code%20Quality%20and%20CI.html">
+   6. Code Quality and CI
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/0 Intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/henryiii/level-up-your-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/henryiii/level-up-your-python/main?urlpath=lab/tree/notebooks/0 Intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expected-knowledge">
+     Expected Knowledge
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-the-author">
+   About the author
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#projects">
+     Projects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interests">
+     Interests:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#my-books-and-workshops">
+       My books and workshops
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tempering-your-expectations">
+   Tempering your expectations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-can-you-expect">
+     What can you expect?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instead-you-are-expected-to">
+     Instead, you are expected to:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theory-new-features-in-programming">
+   Theory: New features in programming
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebooks">
+   Notebooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-version">
+   Python version
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="level-up-your-python">
+<h1>Level Up Your Python<a class="headerlink" href="#level-up-your-python" title="Permalink to this headline">¶</a></h1>
+<p>A course in <em>intermediate</em> Python for a beginner ready to move up.</p>
+<p><strong>Henry Schreiner</strong></p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="expected-knowledge">
+<h3>Expected Knowledge<a class="headerlink" href="#expected-knowledge" title="Permalink to this headline">¶</a></h3>
+<p>You should already know:</p>
+<ul class="simple">
+<li><p>Basic Python syntax</p></li>
+<li><p>Functions</p></li>
+<li><p>Basic classes (will cover advanced usages mostly)</p></li>
+<li><p>Basic NumPy (will mention, but not cover)</p></li>
+<li><p>Git - <em>CRITICAL FOR ANY SOFTWARE WORK!</em></p></li>
+</ul>
+<p>And we will be using notebooks in JupyterLab.</p>
+</div>
+</div>
+<div class="section" id="about-the-author">
+<h2>About the author<a class="headerlink" href="#about-the-author" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/anuraghazra/github-readme-stats"><img alt="Henryiii's github stats" src="https://github-readme-stats.vercel.app/api?username=henryiii" /></a></p>
+<p>Most important link: <a class="reference external" href="https://iscinumpy.gitlab.io">https://iscinumpy.gitlab.io</a></p>
+<p><a class="reference external" href="https://scikit-hep.org">Scikit-HEP</a> admin, <a class="reference external" href="https://github.com/scikit-build">scikit-build</a> admin, member of <a class="reference external" href="https://iris-hep.org">IRIS-HEP</a>. <a class="reference external" href="https://github.com/pypa">PyPA</a> member.</p>
+<div class="section" id="projects">
+<h3>Projects<a class="headerlink" href="#projects" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://pybind11.readthedocs.io">pybind11</a> •
+<a class="reference external" href="https://cibuildwheel.readthedocs.io">cibuildwheel</a> •
+<a class="reference external" href="https://pypa-build.readthedocs.io">build</a> •
+<a class="reference external" href="https://github.com/scikit-build">scikit-build</a> •
+<a class="reference external" href="https://github.com/scikit-hep/boost-histogram">boost-histogram</a> •
+<a class="reference external" href="https://github.com/scikit-hep/hist">Hist</a> •
+<a class="reference external" href="https://github.com/scikit-hep/uhi">UHI</a> •
+<a class="reference external" href="https://github.com/scikit-hep/vector">Vector</a> •
+<a class="reference external" href="https://github.com/CLIUtils/CLI11">CLI11</a> •
+<a class="reference external" href="https://plumbum.readthedocs.io/en/latest">Plumbum</a> •
+<a class="reference external" href="https://github.com/GooFit/GooFit">GooFit</a> •
+<a class="reference external" href="https://github.com/scikit-hep/particle">Particle</a> •
+<a class="reference external" href="https://github.com/scikit-hep/decaylanguage">DecayLanguage</a> •
+<a class="reference external" href="https://github.com/conda-forge/root-feedstock">Conda-Forge ROOT</a> •
+<a class="reference external" href="https://github.com/Princeton-Penn-Vents/princeton-penn-flowmeter">POVM</a> •
+<a class="reference external" href="https://github.com/iris-hep/jekyll-indico">Jekyll-Indico</a></p>
+</div>
+<div class="section" id="interests">
+<h3>Interests:<a class="headerlink" href="#interests" title="Permalink to this headline">¶</a></h3>
+<p>Packaging and building • Bindings • Building a HEP analysis toolchain in Python, JITable</p>
+<div class="section" id="my-books-and-workshops">
+<h4>My books and workshops<a class="headerlink" href="#my-books-and-workshops" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://cliutils.gitlab.io/modern-cmake/">Modern CMake</a> •
+<a class="reference external" href="https://hsf-training.github.io/hsf-training-cmake-webpage/">CMake Workshop</a> •
+<a class="reference external" href="https://henryiii.github.io/compclass">Computational Physics Class</a> •
+Python <a class="reference external" href="https://github.com/henryiii/python-performance-minicourse">CPU</a>,
+<a class="reference external" href="https://github.com/henryiii/pygpu-minicourse">GPU</a>,
+<a class="reference external" href="https://github.com/henryiii/python-compiled-minicourse">Compiled</a> minicourses</p>
+</div>
+</div>
+</div>
+<div class="section" id="tempering-your-expectations">
+<h2>Tempering your expectations<a class="headerlink" href="#tempering-your-expectations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-can-you-expect">
+<h3>What can you expect?<a class="headerlink" href="#what-can-you-expect" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>I don’t know what you know;</p></li>
+<li><p>We don’t have time to study any topic in depth.</p></li>
+</ul>
+<p>So, we will move <em>fast</em>, and cover a <em>lot</em>.</p>
+<p>You are not expected to able to master everything you see.</p>
+</div>
+<div class="section" id="instead-you-are-expected-to">
+<h3>Instead, you are expected to:<a class="headerlink" href="#instead-you-are-expected-to" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Know what is possible, so you know to look for it;</p></li>
+<li><p>Get pointers on where to look (lots of links!);</p></li>
+<li><p>Refer back to this material later.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="theory-new-features-in-programming">
+<h2>Theory: New features in programming<a class="headerlink" href="#theory-new-features-in-programming" title="Permalink to this headline">¶</a></h2>
+<p>Programming is all about <em>organization</em>. This is not always obvious, and has some odd consequences. Let’s look at one: <strong>new features remove functionality from the user</strong>. And that’s a good thing.</p>
+<p>Don’t believe me? Pick one. Let’s go with an old, simple one you should already know: <code class="docutils literal notranslate"><span class="pre">goto</span></code> vs. loops (<code class="docutils literal notranslate"><span class="pre">for</span></code>/<code class="docutils literal notranslate"><span class="pre">while</span></code>). (This is my favorite example, even though Python thankfully came along late enough to not even have <code class="docutils literal notranslate"><span class="pre">goto</span></code> in the first place, except as <a class="reference external" href="http://entrian.com/goto/">an April fools joke</a> or <a class="reference external" href="https://pypi.org/project/goto-statement/">a proof of concept library</a>.)</p>
+<p>You have total power with goto! Jump from anywhere, to anywhere! You can recreate all loops (for loops, for each loops, while loops, do while (C) loops) with it, and more (like functions)! So why are loops the newer, better feature?</p>
+<p><strong>goto (<a class="reference external" href="https://github.com/snoack/python-goto">partially hypothetical</a> in Python)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">label</span> <span class="o">.</span><span class="n">start</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hi </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">goto</span> <span class="o">.</span><span class="n">start</span>
+</pre></div>
+</div>
+<p><strong>Compare to for loop:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hi </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hi 0
+Hi 1
+Hi 2
+Hi 3
+Hi 4
+Hi 5
+Hi 6
+Hi 7
+Hi 8
+Hi 9
+</pre></div>
+</div>
+</div>
+</div>
+<p>A programmer has to spend time to recognize what is happening in the first example - in the second example, even a fairly new Python programmer will immediately say “that prints 0 to 9”. The second example lets you build more complex programs, because you are working at a ‘higher level’, humans tend to do better which high level concepts (while computers work up from low level).</p>
+<p>Also, we now need several features to make up for the loss of goto; the for loop, the while loop, and functions. Each is more restricted, with less functionality, but better readability and composability.</p>
+<p><img alt="GOTO xkcd comic" src="https://imgs.xkcd.com/comics/goto.png" /></p>
+</div>
+<div class="section" id="notebooks">
+<h2>Notebooks<a class="headerlink" href="#notebooks" title="Permalink to this headline">¶</a></h2>
+<p>We will be using notebooks today. Notebooks are fantastic for teaching, quick experimentation, for developing, or for driving a final analysis product. They are not for serious programming - that happens in <code class="docutils literal notranslate"><span class="pre">.py</span></code> files. Once you write something and get it working, move it to a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file and add a test. Then import it into your notebook!</p>
+<p>We’ll be in JupyterLab 3; it’s fairly new and there have been a few bugs related to code completion. Hopefully everything will be smoothed out soon. (IPython and the Jedi library seem to be at odds).</p>
+</div>
+<div class="section" id="python-version">
+<h2>Python version<a class="headerlink" href="#python-version" title="Permalink to this headline">¶</a></h2>
+<p>Also, everything will be in Python 3; I’ll try to point out when something is new in 3.7+, but we’ll be running in 3.9. <a class="reference external" href="https://numpy.org/neps/nep-0029-deprecation_policy.html">NEP 29</a> mandates that data science should currently be 3.7+ (support dropped 42 months after release), while <a class="reference external" href="https://endoflife.date/python">general Python EOL is 3.6+</a> (5 year support window).</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-level-up-your-python-py",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-level-up-your-python-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='right-next' id="next-link" href="1.1%20Memory%20Model.html" title="next page"><span class="section-number">1. </span>Python Object Model</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Henry Schreiner<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
