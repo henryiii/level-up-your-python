@@ -35,16 +35,15 @@ Day 1: Part 1
 * [1.2 Classes](./notebooks/1.2 Classes.ipynb)
 * [1.4 Debugging](./notebooks/1.4 Debugging.ipynb)
 * [1.5 Profiling](./notebooks/1.5 Profiling.ipynb)
-
-Extra: [2.5 Static Typing](./notebooks/2.5 Static Typing.ipynb)
+* [2.5 Static Typing](./notebooks/2.5 Static Typing.ipynb)
 
 Day 2: Part 2
 
-* [2.6 Using Packages](./notebooks/2.6 Using Packages.ipynb)
 * [2.3 Decorators](./notebooks/2.3 Decorators.ipynb)
 * [2.4 Context Managers](./notebooks/2.4 Context Managers.ipynb)
 * [3.4 Numba](./notebooks/3.4 Numba.ipynb)
 * [3.5 Pybind11](./notebooks/3.5 Pybind11.ipynb)
+* [2.6 Using Packages](./notebooks/2.6 Using Packages.ipynb)
 
 
 Day 4: Powerful Python Packaging for Scientific Codes
