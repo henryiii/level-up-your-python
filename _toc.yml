@@ -20,6 +20,7 @@ parts:
   - file: notebooks/2.5 Static Typing
   - file: notebooks/2.6 Using Packages
   - file: notebooks/2.7 Creating Packages
+  - file: notebooks/2.8 Pattern Matching
 - caption: Libraries
   numbered: true
   chapters:
