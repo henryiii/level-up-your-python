@@ -1,7 +1,11 @@
 repos:
-- repo: https://github.com/nbQA-dev/nbQA
-  rev: 0.13.1
+- repo: https://github.com/psf/black
+  rev: 21.12b0
   hooks:
-    - id: nbqa-black
-      additional_dependencies: [black==20.8b1]
-      args: [--nbqa-mutate]
+  - id: black-jupyter
+    args: [--target-version=py310]
+
+- repo: https://github.com/kynan/nbstripout
+  rev: 0.5.0
+  hooks:
+    - id: nbstripout
