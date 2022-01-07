@@ -27,7 +27,7 @@ This was first taught as a Princeton mini-course in 2020.
 ## PyHEP 2021
 
 This was taught at PyHEP 2021
- 
+
 ## Wintersession 2022
 
 This is being taught at Wintersession, 2022 at Princeton.
