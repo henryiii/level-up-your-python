@@ -10,8 +10,8 @@ class AutoMagics(Magics):
     @cell_magic
     def save_and_run(self, line, cell, local_ns=None):
         commands = line.split()
-        filepath = Path("tmp.py")
-        filepath.write_text(cell)
+        filename = "tmp.py"
+        Path(filename).write_text(cell)
 
         subprocess.run(
             [sys.executable, "-m", *commands, filename],
