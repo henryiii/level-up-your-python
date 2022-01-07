@@ -24,9 +24,9 @@ parts:
 - caption: Libraries
   numbered: true
   chapters:
-  - file: notebooks/3.1 PyTest
+  - file: notebooks/3.1 pytest
   - file: notebooks/3.2 NumPy
   - file: notebooks/3.3 Pandas
   - file: notebooks/3.4 Numba
-  - file: notebooks/3.5 Pybind11
+  - file: notebooks/3.5 pybind11
   - file: notebooks/3.6 Code Quality and CI
