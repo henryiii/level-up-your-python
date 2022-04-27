@@ -7,7 +7,7 @@ DIR = Path(__file__).parent.resolve()
 
 @nox.session
 def pyodide(session: nox.Session) -> None:
-    session.install("jupyterlite[lab,piplite]")
+    session.install("jupyterlite[lab]")
     session.run("jupyter", "lite", "init")
     session.run("jupyter", "lite", "build", "--contents=notebooks")
 
