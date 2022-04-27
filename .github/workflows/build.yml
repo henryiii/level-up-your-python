@@ -6,17 +6,13 @@ on:
     - main
 
 jobs:
-  deploy-book:
+  build--book:
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash -l {0}
     steps:
     - uses: actions/checkout@v3
-
-    - name: Build the Pyodide output
-      run: |
-        pipx run nox -s pyodide
 
     - uses: conda-incubator/setup-miniconda@v2
       with:
@@ -31,12 +27,41 @@ jobs:
       run: |
         jupyter-book build .
 
-    - name: Move the Pyodide output into final site
+    - uses: actions/upload-artifact@v3
+      with:
+        name: jupyterbook
+        path: _build/html/*
+
+
+  build-pyodide:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build the Pyodide output
       run: |
-        mv _output _build/html/live
+        pipx run nox -s pyodide
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: jupyterlite
+        path: _output/*
+
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build-book, build-pyodide]
+    - uses: actions/download-artifact@v3
+      with:
+        name: jupyterbook
+        path: public
+
+    - uses: actions/download-artifact@v3
+      with:
+        name: jupyterlite
+        path: public/live
 
     - uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_build/html
         force_orphan: true
