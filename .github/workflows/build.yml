@@ -12,7 +12,7 @@ jobs:
       run:
         shell: bash -l {0}
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - uses: conda-incubator/setup-miniconda@v2
       with:
@@ -27,7 +27,11 @@ jobs:
       run: |
         jupyter-book build .
 
-    - uses: peaceiris/actions-gh-pages@v3.7.3
+    - name: Build the Pyodide output
+      run: |
+        pipx run nox -s pyodide && mv _output _build/html/live
+
+    - uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./_build/html
