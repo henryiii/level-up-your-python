@@ -6,7 +6,7 @@ on:
     - main
 
 jobs:
-  build--book:
+  build-book:
     runs-on: ubuntu-latest
     defaults:
       run:
