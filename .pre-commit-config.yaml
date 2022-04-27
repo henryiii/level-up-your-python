@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: "v4.1.0"
+  rev: "v4.2.0"
   hooks:
   - id: check-added-large-files
   - id: check-case-conflict
@@ -14,7 +14,7 @@ repos:
   - id: trailing-whitespace
 
 - repo: https://github.com/psf/black
-  rev: 21.12b0
+  rev: 22.3.0
   hooks:
   - id: black-jupyter
     args: [--target-version=py310]

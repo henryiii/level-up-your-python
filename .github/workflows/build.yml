@@ -51,6 +51,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [build-book, build-pyodide]
+    steps:
     - uses: actions/download-artifact@v3
       with:
         name: jupyterbook
