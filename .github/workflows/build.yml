@@ -5,6 +5,15 @@ on:
     branches:
     - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build-book:
     runs-on: ubuntu-latest
@@ -49,9 +58,15 @@ jobs:
 
 
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: [build-book, build-pyodide]
     steps:
+    - name: Setup Pages
+      uses: actions/configure-pages@v1
+
     - uses: actions/download-artifact@v3
       with:
         name: jupyterbook
@@ -62,7 +77,11 @@ jobs:
         name: jupyterlite
         path: public/live
 
-    - uses: peaceiris/actions-gh-pages@v3
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        force_orphan: true
+        path: public
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
