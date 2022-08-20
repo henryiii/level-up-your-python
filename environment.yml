@@ -10,7 +10,7 @@ dependencies:
   - jupyterlab >=3
   - line_profiler
   - matplotlib >=3.5
-  - mypy >=0.960
+  - mypy >=0.9r760
   - nb_conda_kernels
   - numba >=0.55
   - numpy >=1.20
@@ -20,4 +20,4 @@ dependencies:
   - pytest >7
   - pytest-mock
   - python ==3.10.*
-  - rich >=10.8
+  - rich >=11

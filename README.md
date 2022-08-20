@@ -4,6 +4,8 @@ Website here: <https://henryiii.github.io/level-up-your-python>
 
 Live (binder) instance here: <https://mybinder.org/v2/gh/henryiii/level-up-your-python/main?urlpath=lab/tree/notebooks/0%20Intro.ipynb>
 
+Live WebAssymbly (Pyodide + JupyterLite) instance here: <https://henryiii.github.io/level-up-your-python>
+
 This project comes with a conda environment file. To install, run:
 
 ```bash
@@ -30,4 +32,4 @@ This was taught at PyHEP 2021
 
 ## Wintersession 2022
 
-This is being taught at Wintersession, 2022 at Princeton.
+This was at Wintersession, 2022 at Princeton.
