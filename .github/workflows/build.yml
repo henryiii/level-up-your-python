@@ -27,6 +27,8 @@ jobs:
       with:
         environment-file: environment.yml
         activate-environment: level-up-your-python
+        miniforge-variant: Mambaforge
+        use-mamba: true
 
     - name: Install the kernel
       run: |
