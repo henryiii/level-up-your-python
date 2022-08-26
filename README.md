@@ -4,7 +4,7 @@ Website here: <https://henryiii.github.io/level-up-your-python>
 
 Live (binder) instance here: <https://mybinder.org/v2/gh/henryiii/level-up-your-python/main?urlpath=lab/tree/notebooks/0%20Intro.ipynb>
 
-Live WebAssymbly (Pyodide + JupyterLite) instance here: <https://henryiii.github.io/level-up-your-python>
+Live WebAssymbly (Pyodide + JupyterLite) instance here: <https://henryiii.github.io/level-up-your-python/live>
 
 This project comes with a conda environment file. To install, run:
 
