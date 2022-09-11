@@ -4,9 +4,8 @@ parts:
 - caption: Object Model
   numbered: true
   chapters:
-  - file: notebooks/1.1 Memory Model
+  - file: notebooks/1.1 Inspection
   - file: notebooks/1.1b Intro to Classes
-  - file: notebooks/1.2 Classes
   - file: notebooks/1.3 Logging
   - file: notebooks/1.4 Debugging
   - file: notebooks/1.5 Profiling
@@ -30,3 +29,8 @@ parts:
   - file: notebooks/3.4 Numba
   - file: notebooks/3.5 pybind11
   - file: notebooks/3.6 Code Quality and CI
+- caption: Advanced
+  numbered: true
+  chapters:
+  - file: notebooks/1.1 Memory Model
+  - file: notebooks/1.2 Classes
