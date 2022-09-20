@@ -30,6 +30,6 @@ def avoid_pyodide_bug():
         txt = path.read_text()
         txt = txt.replace(
             "https://cdn.jsdelivr.net/pyodide/v0.21.0",
-            "https://cdn.jsdelivr.net/pyodide/v0.21.2",
+            "https://cdn.jsdelivr.net/pyodide/v0.21.3",
         )
         path.write_text(txt)
