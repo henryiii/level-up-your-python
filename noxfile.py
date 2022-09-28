@@ -1,4 +1,4 @@
-import noX
+import nox
 
 nox.needs_version = ">=2022.1.7"
 
