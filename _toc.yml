@@ -4,8 +4,8 @@ parts:
 - caption: Object Model
   numbered: true
   chapters:
-  - file: notebooks/1.1 Inspection
-  - file: notebooks/1.2 Intro to Classes
+  - file: notebooks/1.1 Intro to Classes
+  - file: notebooks/1.2 Inspection
   - file: notebooks/1.3 Logging
   - file: notebooks/1.4 Debugging
   - file: notebooks/1.5 Profiling
