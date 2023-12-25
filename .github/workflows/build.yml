@@ -21,9 +21,9 @@ jobs:
       run:
         shell: bash -l {0}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
-    - uses: conda-incubator/setup-miniconda@v2
+    - uses: conda-incubator/setup-miniconda@v3
       with:
         environment-file: environment.yml
         activate-environment: level-up-your-python
@@ -38,7 +38,7 @@ jobs:
       run: |
         jupyter-book build .
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: jupyterbook
         path: _build/html/*
@@ -47,13 +47,13 @@ jobs:
   build-pyodide:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Build the Pyodide output
       run: |
         pipx run nox -s pyodide
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: jupyterlite
         path: _output/*
@@ -67,23 +67,23 @@ jobs:
     needs: [build-book, build-pyodide]
     steps:
     - name: Setup Pages
-      uses: actions/configure-pages@v1
+      uses: actions/configure-pages@v4
 
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       with:
         name: jupyterbook
         path: public
 
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       with:
         name: jupyterlite
         path: public/live
 
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
+      uses: actions/upload-pages-artifact@v3
       with:
         path: public
 
     - name: Deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages@v1
+      uses: actions/deploy-pages@v4
