@@ -71,11 +71,6 @@ jobs:
           name: jupyterlite
           path: public/live
 
-      - uses: actions/download-artifact@v4
-        with:
-          name: slides
-          path: public/slides
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
