@@ -12,7 +12,7 @@ def pyodide(session: nox.Session) -> None:
         "jupyterlite-pyodide-kernel~=0.6.1",
     )
     session.run("jupyter", "lite", "init")
-    session.run("jupyter", "lite", "build", "--contents=content")
+    session.run("jupyter", "lite", "build", "--contents=notebooks")
 
     if session.interactive:
         session.run("jupyter", "lite", "serve")
