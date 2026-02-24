@@ -1,0 +1,42 @@
+version: 1
+project:
+  title: Level Up Your Python
+  authors:
+    - name: Henry Schreiner
+  github: henryiii/level-up-your-python
+  toc:
+    - file: notebooks/0 Intro.ipynb
+    - title: Object Model
+      children:
+        - file: notebooks/1.1 Intro to Classes.ipynb
+        - file: notebooks/1.2 Inspection.ipynb
+        - file: notebooks/1.3 Logging.ipynb
+        - file: notebooks/1.4 Debugging.ipynb
+        - file: notebooks/1.5 Profiling.ipynb
+    - title: Syntax
+      children:
+        - file: notebooks/2.1 Errors.ipynb
+        - file: notebooks/2.2 Generators.ipynb
+        - file: notebooks/2.3 Decorators.ipynb
+        - file: notebooks/2.4 Context Managers.ipynb
+        - file: notebooks/2.5 Static Typing.ipynb
+        - file: notebooks/2.6 Using Packages.ipynb
+        - file: notebooks/2.7 Creating Packages.ipynb
+        - file: notebooks/2.8 Pattern Matching.ipynb
+    - title: Libraries
+      children:
+        - file: notebooks/3.1 pytest.ipynb
+        - file: notebooks/3.2 NumPy.ipynb
+        - file: notebooks/3.3 Pandas.ipynb
+        - file: notebooks/3.4 Numba.ipynb
+        - file: notebooks/3.5 pybind11.ipynb
+        - file: notebooks/3.6 Code Quality and CI.ipynb
+    - title: Advanced
+      children:
+        - file: notebooks/4.1 Memory Model.ipynb
+        - file: notebooks/4.2 Classes.ipynb
+site:
+  options:
+    logo: images/LevelUpYourPython.png
+    folders: true
+  template: book-theme
