@@ -27,6 +27,8 @@ jobs:
 
       - name: Build the book
         run: pixi run book-ci
+        env:
+          BASE_URL: https://henryiii.github.io/level-up-your-python
 
       - uses: actions/upload-artifact@v6
         with:
