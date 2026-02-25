@@ -26,7 +26,7 @@ jobs:
           pixi-version: v0.64.0
 
       - name: Build the book
-        run: pixi run book
+        run: pixi run book-ci
 
       - uses: actions/upload-artifact@v6
         with:

@@ -27,4 +27,5 @@ rich = ">=11"
 [tasks]
 lab = "jupyter lab"
 book = "python -m ipykernel install --user --name conda-env-level-up-your-python-py && jupyter-book build --execute"
+book-ci = "python -m ipykernel install --user --name conda-env-level-up-your-python-py && jupyter-book build --execute --ci"
 pdf = "python -m ipykernel install --user --name conda-env-level-up-your-python-py && jupyter-book build --pdf --execute"
