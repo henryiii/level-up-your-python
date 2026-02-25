@@ -35,6 +35,7 @@ jobs:
         with:
           name: jupyterbook
           path: _build/html/*
+          if-no-files-found: error
 
 
   build-pyodide:
@@ -53,6 +54,7 @@ jobs:
         with:
           name: jupyterlite
           path: _output/*
+          if-no-files-found: error
 
 
   deploy:
