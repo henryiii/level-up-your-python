@@ -17,6 +17,7 @@ concurrency:
 jobs:
   build-book:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
 
@@ -35,6 +36,7 @@ jobs:
 
   build-pyodide:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
 
@@ -54,7 +56,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     needs: [build-book, build-pyodide]
     if: github.event_name == 'push'
     steps:

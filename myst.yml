@@ -4,6 +4,8 @@ project:
   authors:
     - name: Henry Schreiner
   github: henryiii/level-up-your-python
+  jupyter:
+    lite: true
   toc:
     - file: notebooks/0 Intro.ipynb
     - title: Object Model
