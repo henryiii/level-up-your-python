@@ -4,22 +4,19 @@ Website here: <https://henryiii.github.io/level-up-your-python>
 
 Live (binder) instance here: <https://mybinder.org/v2/gh/henryiii/level-up-your-python/main?urlpath=lab/tree/notebooks/0%20Intro.ipynb>
 
-Live WebAssymbly (Pyodide + JupyterLite) instance here: <https://henryiii.github.io/level-up-your-python/live>
+Live WebAssembly (Pyodide + JupyterLite) instance here: <https://henryiii.github.io/level-up-your-python/live>
 
-This project comes with a conda environment file. To install, run:
+This project comes with [pixi](https://pixi.prefix.dev) support. Install pixi, then run:
 
 ```bash
-conda create env
+pixi run lab
 ```
 
-Then you can just start up a jupyter lab server:
+To start up a jupyter lab server.
 
 ```bash
 juptyer lab
 ```
-
-You only need to have [conda installed](https://docs.conda.io/en/latest/miniconda.html). If you want to have it pre-configured with [conda-forge](https://conda-forge.org/), that's [available here](https://github.com/conda-forge/miniforge). The Mambaforge version is _FAST_!
-
 ---
 
 ## Princeton mini-course
