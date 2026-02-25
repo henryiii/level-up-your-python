@@ -8,7 +8,7 @@ project:
     lite: true
   toc:
     - file: notebooks/0 Intro.ipynb
-    - title: Object Model
+    - title: Basics
       children:
         - file: notebooks/1.1 Intro to Classes.ipynb
         - file: notebooks/1.2 Inspection.ipynb
@@ -21,10 +21,11 @@ project:
         - file: notebooks/2.2 Generators.ipynb
         - file: notebooks/2.3 Decorators.ipynb
         - file: notebooks/2.4 Context Managers.ipynb
-        - file: notebooks/2.5 Static Typing.ipynb
+        - file: notebooks/2.5 Async.ipynb
         - file: notebooks/2.6 Using Packages.ipynb
         - file: notebooks/2.7 Creating Packages.ipynb
         - file: notebooks/2.8 Pattern Matching.ipynb
+        - file: notebooks/2.9 Static Typing.ipynb
     - title: Libraries
       children:
         - file: notebooks/3.1 pytest.ipynb
