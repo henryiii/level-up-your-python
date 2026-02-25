@@ -17,7 +17,7 @@ concurrency:
 jobs:
   build-book:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
 
@@ -28,6 +28,9 @@ jobs:
       - name: Build the book
         run: pixi run book-ci
 
+      - name: List the files
+        run: ls _build
+
       - uses: actions/upload-artifact@v6
         with:
           name: jupyterbook
@@ -36,7 +39,7 @@ jobs:
 
   build-pyodide:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v5
 
