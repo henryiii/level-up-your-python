@@ -25,8 +25,7 @@ python = ">=3.12"
 rich = ">=11"
 
 [tasks]
-kernel = "python -m ipykernel install --user --name conda-env-level-up-your-python-py"
-lab = {cmd = "jupyter lab", depends-on = ["kernel"]}
-book = {cmd = "jupyter book build --execute --html", depends-on = ["kernel"]}
-book-ci = {cmd = "jupyter book build --execute --ci --html", depends-on = ["kernel"]}
-pdf = {cmd = "jupyter book build --pdf --execute", depends-on = ["kernel"]}
+lab = "jupyter lab"
+book = "jupyter book build --execute --html"
+book-ci = "jupyter book build --execute --ci --html"
+pdf = "jupyter book build --pdf --execute"
