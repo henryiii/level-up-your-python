@@ -15,7 +15,7 @@ pixi run lab
 To start up a jupyter lab server.
 
 ```bash
-juptyer lab
+jupyter lab
 ```
 ---
 
