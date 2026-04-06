@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: prefix-dev/setup-pixi@v0.9.4
+      - uses: prefix-dev/setup-pixi@v0.9.5
         with:
           pixi-version: v0.64.0
 
@@ -67,7 +67,7 @@ jobs:
     if: github.event_name == 'push'
     steps:
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - uses: actions/download-artifact@v8
         with:
@@ -86,4 +86,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
