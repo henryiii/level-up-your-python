@@ -12,11 +12,13 @@ This project comes with [pixi](https://pixi.prefix.dev) support. Install pixi, t
 pixi run lab
 ```
 
-To start up a jupyter lab server.
+That starts a JupyterLab server. Other tasks:
 
 ```bash
-jupyter lab
+pixi run book   # Build the HTML book locally
+pixi run pdf    # Build a PDF
 ```
+
 ---
 
 ## Princeton mini-course
