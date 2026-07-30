@@ -14,10 +14,10 @@ repos:
   - id: requirements-txt-fixer
   - id: trailing-whitespace
 
-- repo: https://github.com/psf/black
-  rev: 26.1.0
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.16.0
   hooks:
-  - id: black-jupyter
+  - id: ruff-format
     args: [--target-version=py312]
 
 - repo: https://github.com/kynan/nbstripout
