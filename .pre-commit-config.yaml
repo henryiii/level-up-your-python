@@ -18,7 +18,7 @@ repos:
   rev: v0.16.0
   hooks:
   - id: ruff-format
-    args: [--target-version=py312]
+    args: [--target-version=py311]
 
 - repo: https://github.com/kynan/nbstripout
   rev: 0.9.1
